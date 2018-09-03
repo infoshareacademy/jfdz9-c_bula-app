@@ -1,0 +1,29 @@
+{
+  "store": {
+    "id": 12,
+    "name": "Bagietka",
+    "address": {
+      "postalCode": "80-390",
+      "district": "Chełm",
+      "street": "ul. Krolowej Zygmuty 16a/78"
+    },
+    "image": "",
+    "openingHours": {
+      "weekday": "",
+      "saturday": "",
+      "sunday": ""
+    },
+    "category_id": [12, 11],
+    "description": "",
+    "categories": [{
+      "id": 12,
+      "name": "Piekarnia"
+    }]
+  },
+  "user": {
+    "name": "Wanka",
+    "email": "wanka@wp.pl",
+    "id": 123,
+    "shopkeeper": false
+  }
+}
