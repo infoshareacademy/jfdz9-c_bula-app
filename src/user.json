@@ -2,5 +2,6 @@
     "name": "Wanka",
     "email": "wanka@wp.pl",
     "id": 123,
-    "shopkeeper": false
+    "shopkeeper": false,
+    "favs": [1, 6]
 }
