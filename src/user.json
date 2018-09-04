@@ -1,8 +1,6 @@
 {
-  "user": {
     "name": "Wanka",
     "email": "wanka@wp.pl",
     "id": 123,
     "shopkeeper": false
-  }
 }
