@@ -1,0 +1,54 @@
+[
+    {
+    "id": 1,
+    "name": "piekarnia"
+    },
+    {
+      "id": 2,
+      "name": "mięsny"
+    },
+    {
+      "id": 3,
+      "name": "warzywniak"
+    },
+    {
+      "id": 4,
+      "name": "spożywczy"
+    },
+    {
+      "id": 5,
+      "name": "apteka"
+    },
+    {
+      "id": 6,
+      "name": "cukiernia"
+    },
+    {
+      "id": 7,
+      "name": "butik"
+    },
+    {
+      "id": 8,
+      "name": "delikatesy"
+    },
+    {
+      "id": 9,
+      "name": "drogeria"
+    },
+    {
+      "id": 10,
+      "name": "kwiaciarnia"
+    },
+    {
+      "id": 11,
+      "name": "zielarski"
+    },
+    {
+      "id": 12,
+      "name": "ogrodniczy"
+    },
+    {
+      "id": 13,
+      "name": "rybny"
+    }
+  ]
