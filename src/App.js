@@ -20,7 +20,7 @@ function App() {
                             <Paper>Filter</Paper>
                         </Grid>
                         <Grid item xs={8}>
-                            <List />
+                            <Paper><List /></Paper>
                         </Grid>
                         <Grid item xs={12}>
                             <Paper>Footer</Paper>
