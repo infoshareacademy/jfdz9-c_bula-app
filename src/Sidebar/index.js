@@ -5,7 +5,6 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
@@ -19,9 +18,9 @@ const styles = theme => ({
 
 class CheckboxesGroup extends React.Component {
     state = {
-        gilad: true,
-        jason: false,
-        antoine: false,
+        piekarnie: true,
+        warzywniaki: false,
+        monopolowe: false,
     };
 
     handleChange = name => event => {
@@ -30,66 +29,37 @@ class CheckboxesGroup extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const { gilad, jason, antoine } = this.state;
+        const { piekarnie, warzywniaki, monopolowe } = this.state;
         const error = Object.values(this.state).filter(v => v).length !== 2;
 
         return (
             <div className={classes.root}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend">Assign responsibility</FormLabel>
+                    <FormLabel component="legend"><h2>Wybierz kategorie sklepów:</h2></FormLabel>
                     <FormGroup>
                         <FormControlLabel
                             control={
-                                <Checkbox checked={gilad} onChange={this.handleChange('gilad')} value="gilad" />
+                                <Checkbox checked={piekarnie} onChange={this.handleChange('piekarnie')} value="piekarnie" />
                             }
-                            label="Gilad Gray"
+                            label="Piekarnie"
                         />
                         <FormControlLabel
                             control={
-                                <Checkbox checked={jason} onChange={this.handleChange('jason')} value="jason" />
+                                <Checkbox checked={warzywniaki} onChange={this.handleChange('warzywniaki')} value="warzywniaki" />
                             }
-                            label="Jason Killian"
+                            label="Warzywniaki"
                         />
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    checked={antoine}
-                                    onChange={this.handleChange('antoine')}
-                                    value="antoine"
+                                    checked={monopolowe}
+                                    onChange={this.handleChange('monopolowe')}
+                                    value="monopolowe"
                                 />
                             }
-                            label="Antoine Llorca"
+                            label="Monopolowe"
                         />
                     </FormGroup>
-                    <FormHelperText>Be careful</FormHelperText>
-                </FormControl>
-                <FormControl required error={error} component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend">Pick two</FormLabel>
-                    <FormGroup>
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={gilad} onChange={this.handleChange('gilad')} value="gilad" />
-                            }
-                            label="Gilad Gray"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={jason} onChange={this.handleChange('jason')} value="jason" />
-                            }
-                            label="Jason Killian"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={antoine}
-                                    onChange={this.handleChange('antoine')}
-                                    value="antoine"
-                                />
-                            }
-                            label="Antoine Llorca"
-                        />
-                    </FormGroup>
-                    <FormHelperText>You can display an error</FormHelperText>
                 </FormControl>
             </div>
         );
