@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import List from './List'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Sidebar from './Sidebar';
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
                             <Paper>input</Paper>
                         </Grid>
                         <Grid item xs={4}>
-                            <Paper>Filter</Paper>
+                            <Paper>
+                                <Sidebar/>
+                            </Paper>
                         </Grid>
                         <Grid item xs={8}>
                             <List />
