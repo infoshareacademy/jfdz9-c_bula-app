@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -30,7 +30,6 @@ class CheckboxesGroup extends React.Component {
     render() {
         const { classes } = this.props;
         const { piekarnie, warzywniaki, monopolowe } = this.state;
-        const error = Object.values(this.state).filter(v => v).length !== 2;
 
         return (
             <div className={classes.root}>
