@@ -1,10 +1,15 @@
 import React, { Fragment } from 'react';
 import List from './List'
+import Search from './Search/index'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 
 function App() {
+const onFormSubmit = event => {
+    console.log(event);
+    let filterList = '';
+};
 
         return ( <Fragment>
 
@@ -14,7 +19,7 @@ function App() {
                             <Paper>Navigation <h1>tu bedzie strona glowna</h1></Paper>
                         </Grid>
                         <Grid item xs={12}>
-                            <Paper>input</Paper>
+                            <Paper><Search onFormSubmit={onFormSubmit}/></Paper>
                         </Grid>
                         <Grid item xs={4}>
                             <Paper>Filter</Paper>
