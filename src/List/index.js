@@ -5,9 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Favorite from '@material-ui/icons/Favorite';
+// import BottomNavigation from '@material-ui/core/BottomNavigation';
+// import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+// import Favorite from '@material-ui/icons/Favorite';
 
 
 const styles = theme => ({
@@ -36,6 +36,7 @@ class List extends Component {
 
     state = {
         shops: [],
+        filteredShops: [],
         value: 0,
     };
 
@@ -53,12 +54,27 @@ class List extends Component {
        this.setState({ value })
    };
 
+    onSearch = value => {
+        let maxId = 0;
+        if (this.state.shops.length > 0) {
+            maxId = Math.max.apply(Math, this.state.map(shop => shop.id));
+        }
+        const newOnSearch = {
+            id: maxId + 1,
+            name: value,
+        };
+        this.setState({
+            shops: this.state.shops.concat(newOnSearch),
+        });
+    };
+
     render() {
         const { classes } = this.props;
         const { value } = this.state;
 
         return (
             <Fragment>
+
                     {this.state.shops.map(shop => {
                         return <div key={shop.id}>
                             <Paper>
@@ -88,13 +104,13 @@ class List extends Component {
                                             <Typography color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
                                             <Typography color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
                                             <Typography color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
-                                            <BottomNavigation
-                                                value={value}
-                                                onChange={this.handleChange}
-                                                showLabels
-                                            >
-                                                <BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />
-                                            </BottomNavigation>
+                                            {/*<BottomNavigation*/}
+                                                {/*value={value}*/}
+                                                {/*onChange={this.handleChange}*/}
+                                                {/*showLabels*/}
+                                            {/*>*/}
+                                                {/*<BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />*/}
+                                            {/*</BottomNavigation>*/}
                                         </Grid>
                                     </Grid>
                                 </Grid>
