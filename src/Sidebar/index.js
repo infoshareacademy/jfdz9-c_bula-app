@@ -1,7 +1,4 @@
 import React from 'react';
-import CheckboxesGroup from "./CheckboxesGroup";
-import ControlledOpenSelect from "./ControlledOpenSelect";
+import Sidebar from "./Sidebar";
 
 export default Sidebar;
-
-export {default as Sidebar} from './Sidebar';

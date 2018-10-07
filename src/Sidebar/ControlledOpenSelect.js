@@ -42,10 +42,10 @@ class ControlledOpenSelect extends React.Component {
         return (
             <form autoComplete="off">
                 <Button className={classes.button} onClick={this.handleOpen}>
-                    Open the select
+                    Wybierz dzielnicę:
                 </Button>
                 <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="demo-controlled-open-select">Age</InputLabel>
+                    <InputLabel htmlFor="demo-controlled-open-select">Dzielnica</InputLabel>
                     <Select
                         open={this.state.open}
                         onClose={this.handleClose}
@@ -58,11 +58,11 @@ class ControlledOpenSelect extends React.Component {
                         }}
                     >
                         <MenuItem value="">
-                            <em>None</em>
+                            <em>Wybierz</em>
                         </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={10}>Wrzeszcz</MenuItem>
+                        <MenuItem value={20}>Żaba</MenuItem>
+                        <MenuItem value={30}>Oliwa</MenuItem>
                     </Select>
                 </FormControl>
             </form>

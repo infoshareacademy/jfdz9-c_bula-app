@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import List from './List'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Sidebar from './Sidebar';
+import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
+import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
                         </Grid>
                         <Grid item xs={4}>
                             <Paper>
-                                <Sidebar/>
+                                <CheckboxesGroup/>
+                                <ControlledOpenSelect/>
                             </Paper>
                         </Grid>
                         <Grid item xs={8}>
