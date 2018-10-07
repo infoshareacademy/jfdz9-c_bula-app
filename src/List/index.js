@@ -68,14 +68,23 @@ class List extends Component {
         });
     };
 
+    filter = (postalCode) => {
+    if(postalCode === '') {
+        return this.state.shops
+    }
+
+    return this.state.shops.filter(shop => shop.address.postalCode === postalCode)
+    };
+
     render() {
         const { classes } = this.props;
         const { value } = this.state;
 
+        console.log(this.props.postalCode);
         return (
             <Fragment>
 
-                    {this.state.shops.map(shop => {
+                    {this.filter(this.props.postalCode).map(shop => {
                         return <div key={shop.id}>
                             <Paper>
                                 <Grid container spacing={24}>
