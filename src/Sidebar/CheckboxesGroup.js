@@ -19,14 +19,28 @@ const styles = theme => ({
 
 class CheckboxesGroup extends React.Component {
     state = {
-        piekarnie: true,
-        warzywniaki: false,
-        monopolowe: false,
-        miesne: false
+        categories: [],
+        selectedCategoryIds: []
     };
 
-    handleChange = name => event => {
-        this.setState({ [name]: event.target.checked });
+    componentDidMount() {
+        fetch(process.env.PUBLIC_URL + '/data/categories.json').then(
+            response => response.json()
+        ).then(
+            categories => this.setState({ categories })
+        )
+    }
+
+    handleChange = categoryId => event => {
+        this.setState({
+            selectedCategoryIds: this.state.selectedCategoryIds.includes(categoryId) ?
+                this.state.selectedCategoryIds.filter(id => id !== categoryId) :
+                this.state.selectedCategoryIds.concat(categoryId)
+        }, () => {
+            this.props.setCategoryIds(this.state.selectedCategoryIds)
+        });
+
+
     };
 
     render() {
@@ -38,40 +52,21 @@ class CheckboxesGroup extends React.Component {
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend"><h2>Wybierz kategorie sklepów:</h2></FormLabel>
                     <FormGroup>
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={piekarnie}
-                                          onChange={this.handleChange('piekarnie')}
-                                          value="piekarnie" />
-                            }
-                            label="Piekarnie"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={miesne}
-                                          onChange={this.handleChange('miesne')}
-                                          value="miesne" />
-                            }
-                            label="Mięsne"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox checked={warzywniaki}
-                                          onChange={this.handleChange('warzywniaki')}
-                                          value="warzywniaki" />
-                            }
-                            label="Warzywniaki"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={monopolowe}
-                                    onChange={this.handleChange('monopolowe')}
-                                    value="monopolowe"
-                                />
-                            }
-                            label="Monopolowe"
-                        />
+                        {
+                            this.state.categories.map(
+                                category => (
+                                    <FormControlLabel
+                                        key={category.id}
+                                        control={
+                                            <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
+                                                      onChange={this.handleChange(category.id)}
+                                                      value={category.id.toString()} />
+                                        }
+                                        label={category.name}
+                                    />
+                                )
+                            )
+                        }
                     </FormGroup>
                 </FormControl>
             </div>
