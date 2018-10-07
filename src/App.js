@@ -3,12 +3,16 @@ import List from './List'
 import Search from './Search/index'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
+import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
+
 import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
+
 
 
 
@@ -39,7 +43,10 @@ class App extends Component {
                                 <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
                             <Grid item xs={4}>
-                                <Paper>Filter</Paper>
+                                <Paper>
+                                      <CheckboxesGroup/>
+                                <ControlledOpenSelect/>
+                </Paper>
                             </Grid>
                             <Grid item xs={8}>
                                 <Paper><List postalCode={this.state.postalCode}/></Paper>
