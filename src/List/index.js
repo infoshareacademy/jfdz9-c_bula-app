@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -40,19 +40,19 @@ class List extends Component {
         value: 0,
     };
 
-   componentDidMount() {
-       fetch('/data/shops.json')
-           .then(response => response.json())
-           .then(shops => {
-               this.setState({
-                   shops: shops,
-               })
-           })
-};
+    componentDidMount() {
+        fetch('/data/shops.json')
+            .then(response => response.json())
+            .then(shops => {
+                this.setState({
+                    shops: shops,
+                })
+            })
+    };
 
-   handleChange = (event, value) => {
-       this.setState({ value })
-   };
+    handleChange = (event, value) => {
+        this.setState({value})
+    };
 
     onSearch = value => {
         let maxId = 0;
@@ -68,30 +68,27 @@ class List extends Component {
         });
     };
 
-    filter = (postalCode) => {
-    if(postalCode === '') {
-        return this.state.shops
-    }
-
-    return this.state.shops.filter(shop => shop.address.postalCode === postalCode)
-    };
-
     render() {
-        const { classes } = this.props;
-        const { value } = this.state;
+        const {classes} = this.props;
+        const {value} = this.state;
 
         console.log(this.props.postalCode);
         return (
             <Fragment>
 
-                    {this.filter(this.props.postalCode).map(shop => {
-                        return <div key={shop.id}>
+                {this.state.shops.filter(
+                    shop => shop.address.postalCode.includes(this.props.postalCode)
+                ).filter(
+                    shop => this.props.selectedCategoryIds.length > 0 ? shop.category_id.some(id => this.props.selectedCategoryIds.includes(id)) : true
+                ).map(
+                    shop => (
+                        <div key={shop.id}>
                             <Paper>
                                 <Grid container spacing={24}>
                                     <Grid item>
-                                    <ButtonBase className={classes.image}>
-                                    <img className={classes.img} alt="logo-sklepu" src={shop.image} />
-                                    </ButtonBase>
+                                        <ButtonBase className={classes.image}>
+                                            <img className={classes.img} alt="logo-sklepu" src={shop.image}/>
+                                        </ButtonBase>
                                     </Grid>
                                     <Grid item xs={12} sm container>
                                         <Grid item xs container direction="column" spacing={16}>
@@ -104,30 +101,34 @@ class List extends Component {
                                                 </Typography>
                                                 <Typography variant="subheading" gutterBottom>
                                                     {shop.description}
-                                                    </Typography>
+                                                </Typography>
                                             </Grid>
 
 
                                         </Grid>
                                         <Grid item>
-                                            <Typography color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
-                                            <Typography color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
-                                            <Typography color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
+                                            <Typography
+                                                color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
+                                            <Typography
+                                                color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
+                                            <Typography
+                                                color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
                                             {/*<BottomNavigation*/}
-                                                {/*value={value}*/}
-                                                {/*onChange={this.handleChange}*/}
-                                                {/*showLabels*/}
+                                            {/*value={value}*/}
+                                            {/*onChange={this.handleChange}*/}
+                                            {/*showLabels*/}
                                             {/*>*/}
-                                                {/*<BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />*/}
+                                            {/*<BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />*/}
                                             {/*</BottomNavigation>*/}
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Paper>
                         </div>
-                    })}
+                    )
+                )}
             </Fragment>
-    );
+        );
     }
 }
 
