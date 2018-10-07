@@ -19,8 +19,6 @@ class App extends Component {
     };
 
     onFormSubmit = event => {
-        console.log(event);
-
         this.setState({
             postalCode: event,
         })
@@ -47,10 +45,6 @@ class App extends Component {
                                 <Paper><List postalCode={this.state.postalCode}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
-                            <Grid item xs={12}>
-                                <Paper>Footer</Paper>
-                            </Grid>
-
                         </Grid>
                     </div>
                 </Router>
