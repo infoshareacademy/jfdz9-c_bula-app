@@ -1,12 +1,135 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import ButtonBase from '@material-ui/core/ButtonBase';
+// import BottomNavigation from '@material-ui/core/BottomNavigation';
+// import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+// import Favorite from '@material-ui/icons/Favorite';
 
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        maxWidth: 600,
+        padding: theme.spacing.unit * 5,
+        marginBottom: 30,
+    },
+    image: {
+        width: 128,
+        height: 128,
+    },
+    img: {
+        margin: 'auto',
+        display: 'block',
+        maxWidth: '100%',
+        maxHeight: '100%',
+    },
+    favoriteIcon: {
+        color: 'green',
+    }
+});
 
 class List extends Component {
-    render() {
-        return ( <h2>a tu listy</h2>
 
+    state = {
+        shops: [],
+        filteredShops: [],
+        value: 0,
+    };
+
+   componentDidMount() {
+       fetch('/data/shops.json')
+           .then(response => response.json())
+           .then(shops => {
+               this.setState({
+                   shops: shops,
+               })
+           })
+};
+
+   handleChange = (event, value) => {
+       this.setState({ value })
+   };
+
+    onSearch = value => {
+        let maxId = 0;
+        if (this.state.shops.length > 0) {
+            maxId = Math.max.apply(Math, this.state.map(shop => shop.id));
+        }
+        const newOnSearch = {
+            id: maxId + 1,
+            name: value,
+        };
+        this.setState({
+            shops: this.state.shops.concat(newOnSearch),
+        });
+    };
+
+    filter = (postalCode) => {
+    if(postalCode === '') {
+        return this.state.shops
+    }
+
+    return this.state.shops.filter(shop => shop.address.postalCode === postalCode)
+    };
+
+    render() {
+        const { classes } = this.props;
+        const { value } = this.state;
+
+        console.log(this.props.postalCode);
+        return (
+            <Fragment>
+
+                    {this.filter(this.props.postalCode).map(shop => {
+                        return <div key={shop.id}>
+                            <Paper>
+                                <Grid container spacing={24}>
+                                    <Grid item>
+                                    <ButtonBase className={classes.image}>
+                                    <img className={classes.img} alt="logo-sklepu" src={shop.image} />
+                                    </ButtonBase>
+                                    </Grid>
+                                    <Grid item xs={12} sm container>
+                                        <Grid item xs container direction="column" spacing={16}>
+                                            <Grid item xs>
+                                                <Typography gutterBottom variant="display1">
+                                                    {shop.name}
+                                                </Typography>
+                                                <Typography color="textSecondary">
+                                                    {shop.address.postalCode} {shop.address.district} {shop.address.street}
+                                                </Typography>
+                                                <Typography variant="subheading" gutterBottom>
+                                                    {shop.description}
+                                                    </Typography>
+                                            </Grid>
+
+
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
+                                            <Typography color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
+                                            <Typography color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
+                                            {/*<BottomNavigation*/}
+                                                {/*value={value}*/}
+                                                {/*onChange={this.handleChange}*/}
+                                                {/*showLabels*/}
+                                            {/*>*/}
+                                                {/*<BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />*/}
+                                            {/*</BottomNavigation>*/}
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Paper>
+                        </div>
+                    })}
+            </Fragment>
     );
     }
 }
 
-export default List;
+
+export default withStyles(styles)(List);
