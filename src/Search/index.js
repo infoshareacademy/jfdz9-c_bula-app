@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WithStyles from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -83,7 +83,7 @@ class MultipleSelect extends React.Component {
 
         return (
             <div className={classes.root}>
-                <form onSubmit={this.onFormSubmit}>
+                <form onSubmit={this.onFormSubmit} className={classes.formControl}>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="select-multiple">Name</InputLabel>
                     <input type="text" name="name" className="searchInput" onChange={this.onChange} value={this.state.value}/>
@@ -130,7 +130,7 @@ class MultipleSelect extends React.Component {
                         ))}
                     </Select>
                 </FormControl>
-                <FormControl className={classes.formControl}>
+               {/* <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="select-multiple-chip">Chip</InputLabel>
                     <Select
                         multiple
@@ -161,7 +161,7 @@ class MultipleSelect extends React.Component {
                             </MenuItem>
                         ))}
                     </Select>
-                </FormControl>
+                </FormControl>*/}
             </div>
         );
     }
@@ -172,4 +172,4 @@ MultipleSelect.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default WithStyles(styles, { withTheme: true })(MultipleSelect);
+export default withStyles(styles, { withTheme: true })(MultipleSelect);
