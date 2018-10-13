@@ -1,15 +1,5 @@
 import React, { Component, Fragment } from 'react';
-
-// const styles = themes => ({
-//     searchInput: {
-//         height: 500,
-//         width: 200,
-//     }
-//
-//
-// });
-
-
+import './search.css';
 
 class Search extends Component {
     state = {
@@ -24,7 +14,7 @@ class Search extends Component {
 
     onFormSubmit = event => {
         event.preventDefault();
-      // console.log(event, 'klik')
+        /*// console.log(event, 'klik')*/
 
         this.props.onFormSubmit(this.state.value)
     };
@@ -37,10 +27,10 @@ class Search extends Component {
             <form onSubmit={this.onFormSubmit}>
                 <label>
 
-                    <input type="text" name="name" className="searchInput" onChange={this.onChange} value={this.state.value}/>
+                    <input type="text" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
 
                 </label>
-                <input type="submit" value="Wyszukaj" />
+                <button class="button" type="submit" value="Wyszukaj">Wyszukaj</button>
             </form>
 
 

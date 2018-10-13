@@ -1,0 +1,29 @@
+input[type=text] {
+    width: 16%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    margin-left: 440px;
+    text-align: center;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
