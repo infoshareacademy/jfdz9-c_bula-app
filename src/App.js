@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import List from './List'
-import MultipleSelect from './Search/index'
+import Search from './Search/index'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
@@ -45,7 +45,7 @@ class App extends Component {
                                 <Nav/>
                             </Grid>
                             <Grid item xs={12}>
-                                <Paper><MultipleSelect onFormSubmit={this.onFormSubmit}/></Paper>
+                                <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
                             <Grid item xs={4}>
                                 <Paper>
