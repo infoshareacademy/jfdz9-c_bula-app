@@ -17,15 +17,40 @@ class App extends Component {
 
     state = {
         postalCode: '',
-        categoryIds: []
+        categories: [],
+        categoryIds: [],
+        district: '',
+        districtIds: [],
+        shops: [],
+    };
+    componentDidMount() {
+        fetch('/data/shops.json')
+            .then(response => response.json())
+            .then(shops => {
+                this.setState({
+                    shops: shops,
+                })
+            });
+        fetch(process.env.PUBLIC_URL + '/data/categories.json')
+            .then(response => response.json())
+            .then(categories => {
+                this.setState({
+                    categories
+                })
+            })
     };
 
     setCategoryIds = categoryIds => {
         this.setState({
             categoryIds
         })
-    }
+    };
 
+    setDistrictIds = districtIds => {
+        this.setState({
+            districtIds
+        })
+    };
 
     onFormSubmit = event => {
         this.setState({
@@ -49,12 +74,12 @@ class App extends Component {
                             </Grid>
                             <Grid item xs={4}>
                                 <Paper>
-                                    <CheckboxesGroup setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect/>
+                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
+                                    <ControlledOpenSelect setDistrictIds={this.setDistrictIds}/>
                                 </Paper>
                             </Grid>
                             <Grid item xs={8}>
-                                <Paper><List postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
+                                <Paper><List shops={this.state.shops} filteredShops={this.state.filteredShops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
                         </Grid>

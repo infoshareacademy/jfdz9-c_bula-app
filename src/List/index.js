@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -34,52 +34,18 @@ const styles = theme => ({
 
 class List extends Component {
 
-    state = {
-        shops: [],
-        filteredShops: [],
-        value: 0,
-    };
-
-    componentDidMount() {
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => {
-                this.setState({
-                    shops: shops,
-                })
-            })
-    };
-
-    handleChange = (event, value) => {
-        this.setState({value})
-    };
-
-    onSearch = value => {
-        let maxId = 0;
-        if (this.state.shops.length > 0) {
-            maxId = Math.max.apply(Math, this.state.map(shop => shop.id));
-        }
-        const newOnSearch = {
-            id: maxId + 1,
-            name: value,
-        };
-        this.setState({
-            shops: this.state.shops.concat(newOnSearch),
-        });
-    };
 
     render() {
         const {classes} = this.props;
-        const {value} = this.state;
+        // const {value} = this.state;
 
-        console.log(this.props.postalCode);
         return (
             <Fragment>
 
-                {this.state.shops.filter(
+                {this.props.shops.filter(
                     shop => shop.address.postalCode.includes(this.props.postalCode)
                 ).filter(
-                    shop => this.props.selectedCategoryIds.length > 0 ? shop.category_id.some(id => this.props.selectedCategoryIds.includes(id)) : true
+                    shop => (this.props.selectedCategoryIds.length > 0) ? (shop.category_id.some(id => this.props.selectedCategoryIds.includes(id))) : true
                 ).map(
                     shop => (
                         <div key={shop.id}>
@@ -103,8 +69,6 @@ class List extends Component {
                                                     {shop.description}
                                                 </Typography>
                                             </Grid>
-
-
                                         </Grid>
                                         <Grid item>
                                             <Typography
@@ -113,13 +77,7 @@ class List extends Component {
                                                 color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
                                             <Typography
                                                 color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
-                                            {/*<BottomNavigation*/}
-                                            {/*value={value}*/}
-                                            {/*onChange={this.handleChange}*/}
-                                            {/*showLabels*/}
-                                            {/*>*/}
-                                            {/*<BottomNavigationAction className={classes.fovoriteIcon}label="Lubię!" icon={<Favorite />} />*/}
-                                            {/*</BottomNavigation>*/}
+
                                         </Grid>
                                     </Grid>
                                 </Grid>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -25,19 +25,19 @@ class ControlledOpenSelect extends React.Component {
     };
 
     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({[event.target.name]: event.target.value});
     };
 
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({open: false});
     };
 
     handleOpen = () => {
-        this.setState({ open: true });
+        this.setState({open: true});
     };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return (
             <form autoComplete="off">
@@ -56,13 +56,22 @@ class ControlledOpenSelect extends React.Component {
                             name: 'age',
                             id: 'demo-controlled-open-select',
                         }}
+
                     >
-                        <MenuItem value="">
-                            <em>Wybierz</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Wrzeszcz</MenuItem>
-                        <MenuItem value={20}>Żaba</MenuItem>
-                        <MenuItem value={30}>Oliwa</MenuItem>
+                        {/*<MenuItem value="">*/}
+                            {/*<em>Wybierz</em>*/}
+                        {/*</MenuItem>*/}
+                        {/*{this.state.shops.address.district.map(*/}
+                                {/*district => (*/}
+                                    {/*<MenuItem*/}
+                                        {/*key={district.id}*/}
+                                        {/*value={district.id.toString()}*/}
+                                        {/*onClick={this.onClickDistrict(district.id)}*/}
+                                    {/*>{district}</MenuItem>*/}
+                                {/*)*/}
+                            {/*)*/}
+                        {/*}*/}
+
                     </Select>
                 </FormControl>
             </form>
