@@ -1,15 +1,30 @@
 import React, { Component, Fragment } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-// const styles = themes => ({
-//     searchInput: {
-//         height: 500,
-//         width: 200,
-//     }
-//
-//
-// });
+const styles = theme => ({
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+    },
+    dense: {
+        marginTop: 16,
+    },
+    menu: {
+        width: 200,
+    },
+    button: {
+        margin: theme.spacing.unit,
+    },
+    input: {
+        display: 'none',
+    },
 
-
+});
 
 class Search extends Component {
     state = {
@@ -24,7 +39,7 @@ class Search extends Component {
 
     onFormSubmit = event => {
         event.preventDefault();
-      // console.log(event, 'klik')
+        // console.log(event, 'klik')
 
         this.props.onFormSubmit(this.state.value)
     };
@@ -32,20 +47,26 @@ class Search extends Component {
     render() {
         const { classes } = this.props;
 
-
         return <Fragment>
-            <form onSubmit={this.onFormSubmit}>
+            <form onSubmit={this.onFormSubmit}  type="submit" className={classes.container} noValidate autoComplete="off">
+                <TextField
+                    id="outlined-name"
+                    label="Name"
+                    className={classes.textField}
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    margin="normal"
+                    variant="outlined"
+                    value={this.state.value}
+                />
                 <label>
-
-                    <input type="text" name="name" className="searchInput" onChange={this.onChange} value={this.state.value}/>
-
+                    <input type="text" name="name" className="searchInput" />
                 </label>
-                <input type="submit" value="Wyszukaj" />
+                <Button variant="outlined" type="submit" className={classes.button}>
+                    Wyszukaj
+                </Button>
             </form>
-
-
         </Fragment>
-    }
-}
+    };
 
-export default Search
+export default Search;
