@@ -14,7 +14,7 @@ import Nav from './Nav';
 import Dashboard from './Dashboard';
 
 
-class App extends Component {
+class Home extends Component {
 
     state = {
         postalCode: '',
@@ -68,4 +68,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Home;

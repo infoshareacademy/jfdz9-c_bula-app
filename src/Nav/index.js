@@ -22,7 +22,7 @@ function Nav() {
                     </Typography>
                     <Button color="inherit"><li><Link to="/dashboard">Dashboard</Link></li></Button>
                     <Button color="inherit"><li><Link to="/list">List</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/App.js">Home</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/home">Home</Link></li></Button>
                     <Button color="inherit"><li><Link to="/signIn">Zaloguj</Link></li></Button>
                 </Toolbar>
             </AppBar>

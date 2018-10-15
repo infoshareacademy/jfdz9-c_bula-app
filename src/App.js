@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import List from './List'
+import Home from './Home'
 import Search from './Search'
 import SignIn from './SignIn'
 import Paper from '@material-ui/core/Paper';
@@ -52,7 +53,7 @@ class App extends Component {
                             <Grid item xs={8}>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/list" component={List}/>
-                               {/* <Route path="/home" component={Home}/>*/}
+                                <Route path="/home" component={Home}/>
                                 <Route path="/signIn" component={SignIn}/>
                             </Grid>
                         </Grid>
