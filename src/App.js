@@ -19,10 +19,11 @@ class App extends Component {
         postalCode: '',
         categories: [],
         categoryIds: [],
-        district: '',
+        district: [],
         districtIds: [],
         shops: [],
     };
+
     componentDidMount() {
         fetch('/data/shops.json')
             .then(response => response.json())
@@ -37,8 +38,17 @@ class App extends Component {
                 this.setState({
                     categories
                 })
-            })
-    };
+            });
+        fetch('/data/shops.json')
+            .then(response => response.json())
+            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
+            .then(district => {
+                this.setState({
+                    district,
+                })
+                // console.log(this.state.district)
+            });
+    }
 
     setCategoryIds = categoryIds => {
         this.setState({
@@ -56,8 +66,6 @@ class App extends Component {
         this.setState({
             postalCode: event,
         })
-
-
     };
 
     render() {
@@ -75,11 +83,11 @@ class App extends Component {
                             <Grid item xs={4}>
                                 <Paper>
                                     <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect setDistrictIds={this.setDistrictIds}/>
+                                    <ControlledOpenSelect shops={this.state.shops} district={this.state.district} setDistrictIds={this.setDistrictIds}/>
                                 </Paper>
                             </Grid>
                             <Grid item xs={8}>
-                                <Paper><List shops={this.state.shops} filteredShops={this.state.filteredShops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
+                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
                         </Grid>

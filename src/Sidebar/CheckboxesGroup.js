@@ -34,7 +34,6 @@ class CheckboxesGroup extends React.Component {
 
     render() {
         const { classes } = this.props;
-        // const { piekarnie, warzywniaki, monopolowe, miesne } = this.state;
 
         return (
             <div className={classes.root}>

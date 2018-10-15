@@ -58,19 +58,16 @@ class ControlledOpenSelect extends React.Component {
                         }}
 
                     >
-                        {/*<MenuItem value="">*/}
-                            {/*<em>Wybierz</em>*/}
-                        {/*</MenuItem>*/}
-                        {/*{this.state.shops.address.district.map(*/}
-                                {/*district => (*/}
-                                    {/*<MenuItem*/}
-                                        {/*key={district.id}*/}
-                                        {/*value={district.id.toString()}*/}
-                                        {/*onClick={this.onClickDistrict(district.id)}*/}
-                                    {/*>{district}</MenuItem>*/}
-                                {/*)*/}
-                            {/*)*/}
-                        {/*}*/}
+                        <MenuItem value="">
+                            <em>Wybierz</em>
+                        </MenuItem>
+                        {
+                            this.props.district.map(
+                            district => (
+                                <MenuItem key={district}>{district}</MenuItem>
+                            )
+                        )
+                        }
 
                     </Select>
                 </FormControl>
