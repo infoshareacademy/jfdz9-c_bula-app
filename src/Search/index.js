@@ -2,29 +2,6 @@ import React, { Component, Fragment } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-    },
-    dense: {
-        marginTop: 16,
-    },
-    menu: {
-        width: 200,
-    },
-    button: {
-        margin: theme.spacing.unit,
-    },
-    input: {
-        display: 'none',
-    },
-});
-
 class Search extends Component {
     state = {
         value: '',
@@ -42,20 +19,18 @@ class Search extends Component {
     };
 
     render() {
-        const {classes} = this.props;
-
         return <Fragment>
             <form onSubmit={this.onFormSubmit} type="submit" noValidateautoComplete="off">
                 <TextField
                     id="outlined-name"
-                    label="Name"
+                    label="kod pocztowy"
                     value={this.state.name}
                     onChange={this.onChange}
                     margin="normal"
                     variant="outlined"
                     value={this.state.value}
                 />
-                <Button type="submit">
+                <Button type="submit" variant="outlined">
                     Wyszukaj
                 </Button>
             </form>
