@@ -1,28 +1,29 @@
 input[type=text] {
-    width: 16%;
+    width: 26%;
+   /* display: block;*/
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-    font-size: 30px;
+    font-size: 15px;
     background-color: white;
     padding: 12px 20px 12px 40px;
-    margin-left: 340px;
+    margin-left: 40px;
     text-align: center;
 }
 
 input::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
 
 }
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 16px 6px;
+    padding: 12px 6px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
+   /* display: inline-block;*/
+    font-size: 15px;
     margin: 4px 10px;
     cursor: pointer;
     border-radius: 4px;
