@@ -46,13 +46,18 @@ class App extends Component {
                                 <Nav/>
                             </Grid>
                             <Grid item xs={12}>
+                                <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
                             <Grid item xs={4}>
+                                <Paper>
+                                    <CheckboxesGroup setCategoryIds={this.setCategoryIds}/>
+                                    <ControlledOpenSelect/>
+                                </Paper>
                             </Grid>
                             <Grid item xs={8}>
+                                <Paper><List postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/list" component={List}/>
-                               {/* <Route path="/home" component={Home}/>*/}
                                 <Route path="/signIn" component={SignIn}/>
                             </Grid>
                         </Grid>
