@@ -23,7 +23,6 @@ const styles = theme => ({
     input: {
         display: 'none',
     },
-
 });
 
 class Search extends Component {
@@ -39,16 +38,14 @@ class Search extends Component {
 
     onFormSubmit = event => {
         event.preventDefault();
-        // console.log(event, 'klik')
-
         this.props.onFormSubmit(this.state.value)
     };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return <Fragment>
-            <form onSubmit={this.onFormSubmit}  type="submit" className={classes.container} noValidate autoComplete="off">
+            <form onSubmit={this.onFormSubmit} type="submit" className={classes.container} noValidateautoComplete="off">
                 <TextField
                     id="outlined-name"
                     label="Name"
@@ -59,14 +56,12 @@ class Search extends Component {
                     variant="outlined"
                     value={this.state.value}
                 />
-                <label>
-                    <input type="text" name="name" className="searchInput" />
-                </label>
                 <Button variant="outlined" type="submit" className={classes.button}>
                     Wyszukaj
                 </Button>
             </form>
         </Fragment>
     };
+}
 
 export default Search;
