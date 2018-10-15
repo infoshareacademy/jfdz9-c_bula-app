@@ -1,12 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import List from './List'
 import Home from './Home'
-import Search from './Search'
 import SignIn from './SignIn'
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
-import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
 import {
     BrowserRouter as Router,
     Route
