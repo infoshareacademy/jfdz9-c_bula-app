@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -20,49 +20,42 @@ const styles = theme => ({
 
 class ControlledOpenSelect extends React.Component {
     state = {
-        age: '',
-        open: false,
+        district: '',
     };
 
     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
-
-    handleOpen = () => {
-        this.setState({ open: true });
+        this.setState({[event.target.name]: event.target.value});
+        this.props.onChange(event.target.value);
     };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return (
             <form autoComplete="off">
-                <Button className={classes.button} onClick={this.handleOpen}>
+                <Button className={classes.button}>
                     Wybierz dzielnicę:
                 </Button>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="demo-controlled-open-select">Dzielnica</InputLabel>
                     <Select
-                        open={this.state.open}
-                        onClose={this.handleClose}
-                        onOpen={this.handleOpen}
-                        value={this.state.age}
+                        value={this.state.district}
                         onChange={this.handleChange}
                         inputProps={{
-                            name: 'age',
+                            name: 'district',
                             id: 'demo-controlled-open-select',
-                        }}
-                    >
+                        }}>
                         <MenuItem value="">
                             <em>Wybierz</em>
                         </MenuItem>
-                        <MenuItem value={10}>Wrzeszcz</MenuItem>
-                        <MenuItem value={20}>Żaba</MenuItem>
-                        <MenuItem value={30}>Oliwa</MenuItem>
+                        {
+                            this.props.district.map(
+                            district => (
+                                <MenuItem value={district} key={district}>{district}</MenuItem>
+                            )
+                        )
+                        }
+
                     </Select>
                 </FormControl>
             </form>

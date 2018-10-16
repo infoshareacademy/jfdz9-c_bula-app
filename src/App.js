@@ -17,22 +17,56 @@ class App extends Component {
 
     state = {
         postalCode: '',
-        categoryIds: []
+        categories: [],
+        categoryIds: [],
+        district: [],
+        districtIds: [],
+        shops: [],
+        selectedDistrict: '',
     };
+
+    componentDidMount() {
+        fetch('/data/shops.json')
+            .then(response => response.json())
+            .then(shops => {
+                this.setState({
+                    shops: shops,
+                })
+            });
+        fetch(process.env.PUBLIC_URL + '/data/categories.json')
+            .then(response => response.json())
+            .then(categories => {
+                this.setState({
+                    categories
+                })
+            });
+        fetch('/data/shops.json')
+            .then(response => response.json())
+            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
+            .then(district => {
+                this.setState({
+                    district,
+                })
+                // console.log(this.state.district)
+            });
+    }
 
     setCategoryIds = categoryIds => {
         this.setState({
             categoryIds
         })
-    }
-
+    };
 
     onFormSubmit = event => {
         this.setState({
             postalCode: event,
         })
+    };
 
-
+    onSelectedDistrict = (district) => {
+        this.setState({
+            selectedDistrict: district
+        })
     };
 
     render() {
@@ -49,12 +83,12 @@ class App extends Component {
                             </Grid>
                             <Grid item xs={4}>
                                 <Paper>
-                                    <CheckboxesGroup setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect/>
+                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
+                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
                                 </Paper>
                             </Grid>
                             <Grid item xs={8}>
-                                <Paper><List postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
+                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
                         </Grid>
