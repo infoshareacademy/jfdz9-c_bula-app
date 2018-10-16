@@ -37,7 +37,6 @@ class List extends Component {
 
     render() {
         const {classes} = this.props;
-        // const {value} = this.state;
 
         return (
             <Fragment>
@@ -45,7 +44,9 @@ class List extends Component {
                 {this.props.shops.filter(
                     shop => shop.address.postalCode.includes(this.props.postalCode)
                 ).filter(
-                    shop => (this.props.selectedCategoryIds.length > 0) ? (shop.category_id.some(id => this.props.selectedCategoryIds.includes(id))) : true
+                    shop => this.props.selectedCategoryIds.length > 0 ? shop.category_id.some(id => this.props.selectedCategoryIds.includes(id)) : true
+                ).filter(
+                    shop => this.props.district ? shop.address.district === this.props.district : true
                 ).map(
                     shop => (
                         <div key={shop.id}>

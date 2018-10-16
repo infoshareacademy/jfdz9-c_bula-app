@@ -22,6 +22,7 @@ class App extends Component {
         district: [],
         districtIds: [],
         shops: [],
+        selectedDistrict: '',
     };
 
     componentDidMount() {
@@ -56,15 +57,15 @@ class App extends Component {
         })
     };
 
-    setDistrictIds = districtIds => {
-        this.setState({
-            districtIds
-        })
-    };
-
     onFormSubmit = event => {
         this.setState({
             postalCode: event,
+        })
+    };
+
+    onSelectedDistrict = (district) => {
+        this.setState({
+            selectedDistrict: district
         })
     };
 
@@ -83,11 +84,11 @@ class App extends Component {
                             <Grid item xs={4}>
                                 <Paper>
                                     <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect shops={this.state.shops} district={this.state.district} setDistrictIds={this.setDistrictIds}/>
+                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
                                 </Paper>
                             </Grid>
                             <Grid item xs={8}>
-                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
+                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
                         </Grid>
