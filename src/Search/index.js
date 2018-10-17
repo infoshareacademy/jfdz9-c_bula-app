@@ -25,17 +25,8 @@ class Search extends Component {
 
 
                 <label>
-
                     <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
-
-
                 </label>
-                {/*<select name="cars">
-                    <option value="empty"></option>
-                    <option value="80107">80-107</option>
-                    <option value="80177">80-177</option>
-                </select>*/}
-
                 <button class="button" type="submit" value="Wyszukaj">Wyszukaj</button>
             </form>
 

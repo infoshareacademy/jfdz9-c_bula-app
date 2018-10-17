@@ -47,11 +47,11 @@ class Home extends Component {
                                 <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
                                 <Paper>
-                                    <CheckboxesGroup setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect/>
+                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
+                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
                                 </Paper>
                             <Grid item xs={8}>
-                                <Paper><List postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
+                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
                             </Grid>
                         </Grid>
                     </div>
