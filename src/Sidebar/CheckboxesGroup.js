@@ -19,17 +19,8 @@ const styles = theme => ({
 
 class CheckboxesGroup extends React.Component {
     state = {
-        categories: [],
         selectedCategoryIds: []
     };
-
-    componentDidMount() {
-        fetch(process.env.PUBLIC_URL + '/data/categories.json').then(
-            response => response.json()
-        ).then(
-            categories => this.setState({ categories })
-        )
-    }
 
     handleChange = categoryId => event => {
         this.setState({
@@ -39,13 +30,10 @@ class CheckboxesGroup extends React.Component {
         }, () => {
             this.props.setCategoryIds(this.state.selectedCategoryIds)
         });
-
-
     };
 
     render() {
         const { classes } = this.props;
-        const { piekarnie, warzywniaki, monopolowe, miesne } = this.state;
 
         return (
             <div className={classes.root}>
@@ -53,7 +41,7 @@ class CheckboxesGroup extends React.Component {
                     <FormLabel component="legend"><h2>Wybierz kategorie sklepów:</h2></FormLabel>
                     <FormGroup>
                         {
-                            this.state.categories.map(
+                            this.props.categories.map(
                                 category => (
                                     <FormControlLabel
                                         key={category.id}

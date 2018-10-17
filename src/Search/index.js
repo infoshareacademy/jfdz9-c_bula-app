@@ -14,14 +14,11 @@ class Search extends Component {
 
     onFormSubmit = event => {
         event.preventDefault();
-        /*// console.log(event, 'klik')*/
 
         this.props.onFormSubmit(this.state.value)
     };
 
     render() {
-        const { classes } = this.props;
-
 
         return <Fragment>
             <form onSubmit={this.onFormSubmit}>
