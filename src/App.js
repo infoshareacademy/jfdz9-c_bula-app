@@ -1,8 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import List from './List'
-import Home from './Home'
-import SignIn from './SignIn'
+import Search from './Search/index'
+import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
+import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
 import {
     BrowserRouter as Router,
     Route
@@ -76,13 +78,18 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Nav/>
                             </Grid>
-                        
-       
                             <Grid item xs={12}>
+                                <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Paper>
+                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
+                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={8}>
+                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
                                 <Route path="/dashboard" component={Dashboard}/>
-                                <Route path="/list" component={List}/>
-                                <Route path="/home" component={Home}/>
-                                <Route path="/signIn" component={SignIn}/>
                             </Grid>
                         </Grid>
                     </div>
