@@ -20,10 +20,10 @@ function Nav() {
                     <Typography variant="title" color="inherit">
                     C-Bulla Aplication
                     </Typography>
-                    <Button color="inherit"><li><Link to="/Dashboard/index.js">Dashboard</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/List/index.js">List</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/App.js">Home</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/SignIn/index.js">Zaloguj</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/dashboard">Dashboard</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/list">List</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/home">Home</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/signIn">Zaloguj</Link></li></Button>
                 </Toolbar>
             </AppBar>
         </Fragment>

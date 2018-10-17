@@ -1,15 +1,5 @@
 import React, { Component, Fragment } from 'react';
-
-// const styles = themes => ({
-//     searchInput: {
-//         height: 500,
-//         width: 200,
-//     }
-//
-//
-// });
-
-
+import './search.css';
 
 class Search extends Component {
     state = {
@@ -24,6 +14,7 @@ class Search extends Component {
 
     onFormSubmit = event => {
         event.preventDefault();
+
         this.props.onFormSubmit(this.state.value)
     };
 
@@ -31,12 +22,21 @@ class Search extends Component {
 
         return <Fragment>
             <form onSubmit={this.onFormSubmit}>
+
+
                 <label>
 
-                    <input type="text" name="name" className="searchInput" onChange={this.onChange} value={this.state.value}/>
+                    <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
+
 
                 </label>
-                <input type="submit" value="Wyszukaj" />
+                {/*<select name="cars">
+                    <option value="empty"></option>
+                    <option value="80107">80-107</option>
+                    <option value="80177">80-177</option>
+                </select>*/}
+
+                <button class="button" type="submit" value="Wyszukaj">Wyszukaj</button>
             </form>
 
 
