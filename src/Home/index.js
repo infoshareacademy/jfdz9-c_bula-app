@@ -46,12 +46,10 @@ class Home extends Component {
                             <Grid item xs={12}>
                                 <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
-                            <Grid item xs={4}>
                                 <Paper>
                                     <CheckboxesGroup setCategoryIds={this.setCategoryIds}/>
                                     <ControlledOpenSelect/>
                                 </Paper>
-                            </Grid>
                             <Grid item xs={8}>
                                 <Paper><List postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds}/></Paper>
                             </Grid>

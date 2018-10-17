@@ -44,9 +44,7 @@ class App extends Component {
                             </Grid>
                             <Grid item xs={12}>
                             </Grid>
-                            <Grid item xs={4}>
-                            </Grid>
-                            <Grid item xs={8}>
+                            <Grid item xs={12}>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/list" component={List}/>
                                 <Route path="/home" component={Home}/>
