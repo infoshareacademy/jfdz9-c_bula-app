@@ -9,6 +9,7 @@ import logo from './logo.png';
 import './nav.css';
 
 function Nav() {
+
     return (
         <Fragment>
             <AppBar className="navigation">
@@ -23,7 +24,8 @@ function Nav() {
                     <Button color="inherit"><li><Link to="/Dashboard/index.js">Dashboard</Link></li></Button>
                     <Button color="inherit"><li><Link to="/List/index.js">List</Link></li></Button>
                     <Button color="inherit"><li><Link to="/App.js">Home</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/SignIn/index.js">Zaloguj</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/SignIn">Zaloguj</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/SignUp">Zarejestruj</Link></li></Button>
                 </Toolbar>
             </AppBar>
         </Fragment>

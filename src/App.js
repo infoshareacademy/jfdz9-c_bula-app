@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
 import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
+import SignUp from "./Auth/signUp";
+import SignIn from "./Auth/signIn";
+import Auth from "./Auth/auth";
 import {
     BrowserRouter as Router,
     Route
@@ -79,6 +82,10 @@ class App extends Component {
                                 <Nav/>
                             </Grid>
                             <Grid item xs={12}>
+                                <Route path="/SignIn" component={SignIn}/>
+                                <Route path="/SignUp" component={SignUp}/>
+                            </Grid>
+                            <Grid item xs={12}>
                                 <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
                             </Grid>
                             <Grid item xs={4}>
@@ -88,7 +95,9 @@ class App extends Component {
                                 </Paper>
                             </Grid>
                             <Grid item xs={8}>
+                                <Auth>
                                 <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
+                                </Auth>
                                 <Route path="/dashboard" component={Dashboard}/>
                             </Grid>
                         </Grid>
