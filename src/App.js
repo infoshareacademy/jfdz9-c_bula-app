@@ -13,59 +13,7 @@ import Dashboard from './Dashboard';
 
 class App extends Component {
 
-    state = {
-        postalCode: '',
-        categories: [],
-        categoryIds: [],
-        district: [],
-        districtIds: [],
-        shops: [],
-        selectedDistrict: '',
-    };
 
-    componentDidMount() {
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => {
-                this.setState({
-                    shops: shops,
-                })
-            });
-        fetch(process.env.PUBLIC_URL + '/data/categories.json')
-            .then(response => response.json())
-            .then(categories => {
-                this.setState({
-                    categories
-                })
-            });
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
-            .then(district => {
-                this.setState({
-                    district,
-                })
-                // console.log(this.state.district)
-            });
-    }
-
-    setCategoryIds = categoryIds => {
-        this.setState({
-            categoryIds
-        })
-    };
-
-    onFormSubmit = event => {
-        this.setState({
-            postalCode: event,
-        })
-    };
-
-    onSelectedDistrict = (district) => {
-        this.setState({
-            selectedDistrict: district
-        })
-    };
 
     render() {
 
@@ -76,11 +24,9 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Nav/>
                             </Grid>
-                        
-       
+
                             <Grid item xs={12}>
                                 <Route path="/dashboard" component={Dashboard}/>
-                                <Route path="/list" component={List}/>
                                 <Route path="/home" component={Home}/>
                                 <Route path="/signIn" component={SignIn}/>
                             </Grid>

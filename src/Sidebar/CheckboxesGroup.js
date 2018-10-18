@@ -18,6 +18,7 @@ const styles = theme => ({
 });
 
 class CheckboxesGroup extends React.Component {
+
     state = {
         selectedCategoryIds: []
     };
