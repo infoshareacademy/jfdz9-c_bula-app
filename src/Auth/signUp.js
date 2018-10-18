@@ -1,7 +1,8 @@
 import firebase from 'firebase';
 import React, {Component, Fragment} from 'react';
 import Modal from "react-responsive-modal";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import Logged from "./logged";
 
 class SignUp extends Component {
 
@@ -9,11 +10,9 @@ class SignUp extends Component {
         email: '',
         password: '',
         error: null,
-
         open: true,
-        redirect: false
+        redirect: false,
     };
-
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/' />
@@ -24,6 +23,7 @@ class SignUp extends Component {
         this.setState({ open: false });
         this.setState({ redirect: true });
     };
+
 
     handleChange = event => {
         this.setState({
@@ -37,7 +37,6 @@ class SignUp extends Component {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then().catch(
             error => this.setState({ error })
         )
-        this.state.error !== null && this.onCloseModal()
     };
 
     render() {
@@ -46,6 +45,7 @@ class SignUp extends Component {
             <Fragment>
                 {this.renderRedirect()}
                 <Modal open={open} onClose={this.onCloseModal} center>
+                    <Logged>
                    <form onSubmit={this.handleSubmit}>
                         <h1>Zarejestruj się</h1>
                       { this.state.error && <p>{this.state.error.message} ({this.state.error.code})</p> }
@@ -53,6 +53,7 @@ class SignUp extends Component {
                       <input name="password" value={this.state.password} onChange={this.handleChange}/>
                       <button>Register</button>
                    </form>
+                    </Logged>
                 </Modal>
             </Fragment>
         )

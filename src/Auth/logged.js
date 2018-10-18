@@ -1,10 +1,19 @@
 import React, { Component, Fragment } from 'react'
+import { Redirect } from 'react-router-dom';
 import firebase from 'firebase'
 
-class Auth extends Component {
+class Logged extends Component {
     state = {
-        user: null
+        user: null,
+        redirect: false,
     };
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/' />
+        }
+    }
+
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(
@@ -17,13 +26,15 @@ class Auth extends Component {
     render() {
         return (
             <div>
+                {this.renderRedirect()}
                 {
                     this.state.user ?
                         <Fragment>
-                            {this.props.children}
+                            <h1>Zalogowano</h1>
+                            {setTimeout(this.setState({ redirect: true }),2000)}
                         </Fragment> :
                         <Fragment>
-                            <h1>Komunikat: Jesteś niezalogowany czy coś takiego, ewentualnie odnośnik do formularza logowania/rejestracji</h1>
+                            {this.props.children}
                         </Fragment>
                 }
 
@@ -32,4 +43,4 @@ class Auth extends Component {
     }
 }
 
-export default Auth
+export default Logged

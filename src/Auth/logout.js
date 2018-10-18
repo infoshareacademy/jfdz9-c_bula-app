@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
+import Button from "@material-ui/core/es/Button/Button";
 import firebase from 'firebase'
 
-class Auth extends Component {
+class Logout extends Component {
     state = {
         user: null
     };
@@ -20,10 +21,14 @@ class Auth extends Component {
                 {
                     this.state.user ?
                         <Fragment>
-                            {this.props.children}
+                            {this.state.user.email}
+                            {' '}
+                            <Button color="inherit" onClick={() => firebase.auth().signOut()}>
+                                Wyloguj
+                            </Button>
                         </Fragment> :
                         <Fragment>
-                            <h1>Komunikat: Jesteś niezalogowany czy coś takiego, ewentualnie odnośnik do formularza logowania/rejestracji</h1>
+                            {this.props.children}
                         </Fragment>
                 }
 
@@ -32,4 +37,4 @@ class Auth extends Component {
     }
 }
 
-export default Auth
+export default Logout

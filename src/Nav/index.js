@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import logo from './logo.png';
 import './nav.css';
 
+import Logout from ".././Auth/logout";
+
 function Nav() {
 
     return (
@@ -24,8 +26,10 @@ function Nav() {
                     <Button color="inherit"><li><Link to="/Dashboard/index.js">Dashboard</Link></li></Button>
                     <Button color="inherit"><li><Link to="/List/index.js">List</Link></li></Button>
                     <Button color="inherit"><li><Link to="/App.js">Home</Link></li></Button>
+                    <Logout>
                     <Button color="inherit"><li><Link to="/SignIn">Zaloguj</Link></li></Button>
                     <Button color="inherit"><li><Link to="/SignUp">Zarejestruj</Link></li></Button>
+                    </Logout>
                 </Toolbar>
             </AppBar>
         </Fragment>

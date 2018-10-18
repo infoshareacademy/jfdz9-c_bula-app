@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import React, {Component, Fragment} from 'react';
 import Modal from "react-responsive-modal";
 import { Redirect } from 'react-router-dom'
+import Logged from "./logged";
 
 class SignIn extends Component {
 
@@ -9,7 +10,6 @@ class SignIn extends Component {
         email: '',
         password: '',
         error: null,
-
         open: true,
         redirect: false
     };
@@ -37,7 +37,6 @@ class SignIn extends Component {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(
             error => this.setState({ error })
         )
-        this.state.error !== null && this.onCloseModal()
     };
 
     render() {
@@ -46,13 +45,15 @@ class SignIn extends Component {
             <Fragment>
                 {this.renderRedirect()}
                 <Modal open={open} onClose={this.onCloseModal} center>
-                    <form onSubmit={this.handleSubmit && this.onCloseModal}>
+                    <Logged>
+                    <form onSubmit={this.handleSubmit}>
                         <h1>Zaloguj się</h1>
                         { this.state.error && <p>{this.state.error.message} ({this.state.error.code})</p> }
                         <input name="email" value={this.state.email} onChange={this.handleChange}/>
                         <input name="password" value={this.state.password} onChange={this.handleChange}/>
                         <button>Sign in</button>
                     </form>
+                    </Logged>
                 </Modal>
             </Fragment>
         );
