@@ -21,7 +21,7 @@ class Search extends Component {
     render() {
 
         return <Fragment>
-            <form onSubmit={this.onFormSubmit}>
+            <form onSubmit={this.onFormSubmit} style={{marginLeft:380}}>
                 <label>
                     <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
                 </label>
