@@ -11,25 +11,25 @@ class SignIn extends Component {
             <form>
                 <p>
                 <label>
-                    <input type="text" name="name" className="signIn" placeholder="nazwa sklepu" />
+                    <input type="text" name="name" className="signIn" placeholder="nazwa sklepu"style={{marginLeft:380}} />
                 </label>
                 <button class="button" type="submit" value="Wyszukaj">Dodaj</button>
                 </p>
                 <p>
                 <label>
-                    <input type="text" name="name" className="signIn" placeholder="ulica"/>
+                    <input type="text" name="name" className="signIn" placeholder="ulica" style={{marginLeft:380}}/>
                 </label>
                 <button className="button" type="submit" value="Wyszukaj">Dodaj</button>
                 </p>
                 <p>
                     <label>
-                    <input type="text" name="name" className="signIn" placeholder="kod pocztowy"/>
+                    <input type="text" name="name" className="signIn" placeholder="kod pocztowy" style={{marginLeft:380}}/>
                 </label>
                 <button className="button" type="submit" value="Wyszukaj">Dodaj</button>
                 </p>
                 <p>
                     <label>
-                        <input type="text" name="name" className="signIn" placeholder="logo sklepu"/>
+                        <input type="text" name="name" className="signIn" placeholder="logo sklepu" style={{marginLeft:380}}/>
                     </label>
                     <button className="button" type="submit" value="Wyszukaj">Załaduj</button>
                 </p>
