@@ -14,16 +14,17 @@ function Nav() {
             <AppBar className="navigation">
                 <Toolbar>
                     <IconButton color="inherit" aria-label="Menu">
-                        <li><Link to="/App.js"><img src={logo} alt="logo C-bulla"/></Link></li>
+                        <li><Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link></li>
                     </IconButton>
 
-                    <Typography variant="title" color="inherit">
-                    C-Bulla Aplication
-                    </Typography>
-                    <Button color="inherit"><li><Link to="/dashboard">Dashboard</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/list">List</Link></li></Button>
-                    <Button color="inherit"><li><Link to="/home">Home</Link></li></Button>
+                    {/*<Typography variant="title" color="inherit">*/}
+                    {/*C-Bulla Aplication*/}
+                    {/*</Typography>*/}
+                    <Button color="inherit"><li><Link to="/dashboard">Strona główna</Link></li></Button>
+                    {/*<Button color="inherit"><li><Link to="/list">List</Link></li></Button>*/}
+                    <Button color="inherit"><li><Link to="/home">Wyszukaj</Link></li></Button>
                     <Button color="inherit"><li><Link to="/signIn">Zaloguj</Link></li></Button>
+                    <Button color="inherit"><li><Link to="/signIn">Zarejestruj</Link></li></Button>
                 </Toolbar>
             </AppBar>
         </Fragment>
