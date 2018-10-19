@@ -17,8 +17,8 @@ const styles = theme => ({
         marginBottom: 30,
     },
     image: {
-        width: 128,
-        height: 128,
+        width: 60,
+        height: 60,
     },
     img: {
         margin: 'auto',

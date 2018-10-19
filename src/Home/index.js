@@ -79,16 +79,15 @@ class Home extends Component {
                             <Grid item xs={12}>
                                 <Search onFormSubmit={this.onFormSubmit}/>
                             </Grid>
+                            <Grid item xs={2}>
+                            <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
+                            </Grid>
                             <Grid item xs={4}>
-                                <Paper>
-                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
-                                </Paper>
+                                <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
                             </Grid>
-                            <Grid item xs={8}>
-                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
+                            <Grid item xs={6}>
+                                <List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/>
                             </Grid>
-
                         </Grid>
                     </div>
                 </Router>

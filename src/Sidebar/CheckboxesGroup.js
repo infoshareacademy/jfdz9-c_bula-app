@@ -11,6 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 const styles = theme => ({
     root: {
         display: 'flex',
+
     },
     formControl: {
         margin: theme.spacing.unit * 3,
@@ -39,7 +40,7 @@ class CheckboxesGroup extends React.Component {
         return (
             <div className={classes.root}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend"><h2>Wybierz kategorie sklepów:</h2></FormLabel>
+                    <FormLabel component="legend"><h2>Wybierz kategorie:</h2></FormLabel>
                     <FormGroup>
                         {
                             this.props.categories.map(
