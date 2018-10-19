@@ -1,34 +1,32 @@
-.navigation {
 
+.MuiToolbar-root-37 {
+    background-color: white;
 }
 .navigation img {
     height: 50px;
     padding: 2px;
 }
-.navigation li {
+
+.navButton a {
+    text-decoration: none;
+    color: #444;
     list-style-type: none;
     font-size: 18px;
+    padding-top: 10px;
+    float: right;
 }
-
-.navigation a {
-    text-decoration: none;
-    color: white;
-    list-style-type: none;
-}
-.navigation title {
-    color: red;
-}
+/*.navButtonAll {*/
+    /*margin-left: 270px;*/
+/*}*/
 .MuiTypography-colorInherit-77 {
-    color: red;
+    color: white;
     font-size: 28px;
 }
 .MuiTypography-root-57 {
     margin-left: 100px;
     display: block;
 }
-.MultiToolbar {
-    color: red;
-}
+
 .MuiGrid-grid-xs-12-41 {
     padding-bottom: 80px;
 }

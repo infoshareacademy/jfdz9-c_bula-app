@@ -1,11 +1,12 @@
-import React, {Component, Fragment} from 'react';
-import List from './List'
-import Home from './Home'
-import SignIn from './SignIn'
+import React, {Component, Fragment } from 'react';
+import Home from './Home';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 import Grid from '@material-ui/core/Grid';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Switch
 } from 'react-router-dom';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
@@ -26,9 +27,12 @@ class App extends Component {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <Route path="/dashboard" component={Dashboard}/>
+                                <Switch>
+                                <Route exact path="/" component={Dashboard}/>
                                 <Route path="/home" component={Home}/>
                                 <Route path="/signIn" component={SignIn}/>
+                                <Route path="/signUp" component={SignUp}/>
+                                </Switch>
                             </Grid>
                         </Grid>
                     </div>
