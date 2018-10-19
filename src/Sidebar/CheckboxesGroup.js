@@ -6,14 +6,13 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import green from '@material-ui/core/colors/green';
 
 const styles = theme => ({
     root: {
         display: 'flex',
-        color: green[600],
+        color: '#C6596F',
         '&$checked': {
-            color: green[500],
+            color: '#C6596F',
         },
     },
     checked: {},
@@ -21,7 +20,13 @@ const styles = theme => ({
         margin: theme.spacing.unit,
     },
 });
+const styleCheckbox = {
+    fontSize: '20px'
+};
+const styleH2 = {
+    // fontSize: '16px',
 
+}
 class CheckboxesGroup extends React.Component {
 
     state = {
@@ -44,12 +49,12 @@ class CheckboxesGroup extends React.Component {
         return (
             <div className={classes.root}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend"><h2>Szukaj po kategoriach</h2></FormLabel>
+                    <FormLabel component="legend"><h2 style={styleH2}>Szukaj po kategoriach</h2></FormLabel>
                     <FormGroup>
                         {
                             this.props.categories.map(
                                 category => (
-                                    <FormControlLabel
+                                    <FormControlLabel style={styleCheckbox}
                                         key={category.id}
                                         control={
                                             <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}

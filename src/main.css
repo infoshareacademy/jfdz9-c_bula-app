@@ -3,3 +3,13 @@ body {
     font-size: 16px;
 
 }
+h1 {
+    font-size: 30px;
+    /*color: #C6596F;*/
+    /*color: #76c143;*/
+    color: #444444;
+}
+h2 {
+    font-size: 24px;
+    color: #C6596F;
+}
