@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 // import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
@@ -49,7 +49,7 @@ class List extends Component {
                 ).map(
                     shop => (
                         <div key={shop.id}>
-                            <Paper>
+                            {/*<Paper>*/}
                                 <Grid container spacing={24}>
                                     <Grid item>
                                         <ButtonBase className={classes.image}>
@@ -81,7 +81,7 @@ class List extends Component {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                            </Paper>
+                            {/*</Paper>*/}
                         </div>
                     )
                 )}

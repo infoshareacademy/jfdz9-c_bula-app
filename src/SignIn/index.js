@@ -13,7 +13,7 @@ class SignIn2 extends Component {
                 <label>
                     <input type="text" name="name" className="signIn" placeholder="nazwa sklepu"style={{marginLeft:380}} />
                 </label>
-                <button class="button" type="submit" value="Wyszukaj">Dodaj</button>
+                <button className="button" type="submit" value="Wyszukaj">Dodaj</button>
                 </p>
                 <p>
                 <label>
