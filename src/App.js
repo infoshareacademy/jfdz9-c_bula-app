@@ -8,6 +8,7 @@ import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
 import SignUp from "./Auth/signUp";
 import SignIn from "./Auth/signIn";
 import Auth from "./Auth/auth";
+import AdminPanel from "./AdminPanel/adminPanel";
 import {
     BrowserRouter as Router,
     Route
@@ -30,12 +31,13 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Route path="/SignIn" component={SignIn}/>
                                 <Route path="/SignUp" component={SignUp}/>
+                                <Route path="/AdminPanel" component={AdminPanel}/>
                             </Grid>
                             
                             <Grid item xs={12}>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/home" component={Home}/>
-                                <Route path="/signIn" component={SignIn}/>
+                                <Route path="/signIn2" component={SignIn2}/>
                             </Grid>
                         </Grid>
                     </div>

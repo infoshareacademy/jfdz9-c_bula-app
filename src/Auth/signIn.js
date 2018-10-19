@@ -19,7 +19,6 @@ class SignIn extends Component {
             return <Redirect to='/' />
         }
     }
-
     onCloseModal = () => {
         this.setState({ open: false });
         this.setState({ redirect: true });

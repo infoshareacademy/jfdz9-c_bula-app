@@ -14,13 +14,6 @@ class SignUp extends Component {
         redirect: false,
     };
 
-    componentDidMount() {
-        firebase.database().ref('/shops').on('value', snapshot => {
-            console.log(snapshot.val());
-
-        })
-    }
-
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/' />
@@ -46,7 +39,8 @@ class SignUp extends Component {
             data => {
                 firebase.database().ref(`/users/${data.user.uid}`).set({
                     shopkeeper: false,
-                    favs: []
+                    favs: [],
+                    email: this.state.email
                 })
         }).catch(
             error => this.setState({ error })

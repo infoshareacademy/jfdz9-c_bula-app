@@ -9,6 +9,7 @@ import logo from './logo.png';
 import './nav.css';
 
 import Logout from ".././Auth/logout";
+import IsAdmin from ".././Auth/isAdmin";
 
 function Nav() {
     return (
@@ -29,6 +30,9 @@ function Nav() {
                         <Button color="inherit"><li><Link to="/SignIn">Zaloguj</Link></li></Button>
                         <Button color="inherit"><li><Link to="/SignUp">Zarejestruj</Link></li></Button>
                     </Logout>
+                    <IsAdmin>
+                    <Button color="inherit"><li><Link to="/AdminPanel">Panel Administratora</Link></li></Button>
+                    </IsAdmin>
                 </Toolbar>
             </AppBar>
         </Fragment>
