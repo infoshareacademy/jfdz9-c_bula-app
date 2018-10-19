@@ -10,6 +10,7 @@ import chart1 from './wykres.png'
 import chart2 from './wykres3.png'
 import chart3 from './wykres4.png'
 import chart4 from './wykres5.png'
+import cebula from './cebula.jpg'
 
 
 
@@ -38,16 +39,16 @@ function CenteredGrid(props) {
                 </Grid>
                 <Grid item xs={6}>
 
-                    <img className="chart" src={chart1} alt="chart"/>
+                    <img className="chart" src={cebula} alt="chart"/>
                 </Grid>
                 <Grid item xs={6}>
-                    <img className="chart" src={chart3} alt="chart2"/>
+                    <img className="chart" src={chart1} alt="chart2"/>
                 </Grid>
                 <Grid item xs={6}>
-                    <img className="chart" src={chart2} alt="chart3"/>
+                    <img className="chart" src={chart3} alt="chart3"/>
                 </Grid>
                 <Grid item xs={6}>
-                    <img className="chart" src={chart4} alt="chart4"/>
+                    <img className="chart2" src={chart4} alt="chart4"/>
                 </Grid>
 
             </Grid>
