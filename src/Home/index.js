@@ -67,6 +67,7 @@ class Home extends Component {
 
     render() {
         return (<Fragment>
+                {console.log(this.state.categories)}
                 <Router>
                     <div>
                         <Grid container spacing={0}>
