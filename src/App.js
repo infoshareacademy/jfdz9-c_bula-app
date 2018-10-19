@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import List from './List'
-import Search from './Search/index'
-import Paper from '@material-ui/core/Paper';
+import Home from './Home'
+import SignIn2 from './SignIn'
 import Grid from '@material-ui/core/Grid';
 import CheckboxesGroup from "./Sidebar/CheckboxesGroup";
 import ControlledOpenSelect from "./Sidebar/ControlledOpenSelect";
@@ -18,60 +18,6 @@ import Dashboard from './Dashboard';
 
 class App extends Component {
 
-    state = {
-        postalCode: '',
-        categories: [],
-        categoryIds: [],
-        district: [],
-        districtIds: [],
-        shops: [],
-        selectedDistrict: '',
-    };
-
-    componentDidMount() {
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => {
-                this.setState({
-                    shops: shops,
-                })
-            });
-        fetch(process.env.PUBLIC_URL + '/data/categories.json')
-            .then(response => response.json())
-            .then(categories => {
-                this.setState({
-                    categories
-                })
-            });
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
-            .then(district => {
-                this.setState({
-                    district,
-                })
-                // console.log(this.state.district)
-            });
-    }
-
-    setCategoryIds = categoryIds => {
-        this.setState({
-            categoryIds
-        })
-    };
-
-    onFormSubmit = event => {
-        this.setState({
-            postalCode: event,
-        })
-    };
-
-    onSelectedDistrict = (district) => {
-        this.setState({
-            selectedDistrict: district
-        })
-    };
-
     render() {
 
         return (<Fragment>
@@ -85,20 +31,11 @@ class App extends Component {
                                 <Route path="/SignIn" component={SignIn}/>
                                 <Route path="/SignUp" component={SignUp}/>
                             </Grid>
+                            
                             <Grid item xs={12}>
-                                <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Paper>
-                                    <CheckboxesGroup categories={this.state.categories} setCategoryIds={this.setCategoryIds}/>
-                                    <ControlledOpenSelect onChange={this.onSelectedDistrict} district={this.state.district}/>
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={8}>
-                                <Auth>
-                                <Paper><List shops={this.state.shops} postalCode={this.state.postalCode} selectedCategoryIds={this.state.categoryIds} district={this.state.selectedDistrict}/></Paper>
-                                </Auth>
                                 <Route path="/dashboard" component={Dashboard}/>
+                                <Route path="/home" component={Home}/>
+                                <Route path="/signIn" component={SignIn}/>
                             </Grid>
                         </Grid>
                     </div>

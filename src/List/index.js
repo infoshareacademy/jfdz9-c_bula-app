@@ -5,8 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-// import BottomNavigation from '@material-ui/core/BottomNavigation';
-// import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+
 // import Favorite from '@material-ui/icons/Favorite';
 
 

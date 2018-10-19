@@ -13,6 +13,14 @@ class SignUp extends Component {
         open: true,
         redirect: false,
     };
+
+    componentDidMount() {
+        firebase.database().ref('/shops').on('value', snapshot => {
+            console.log(snapshot.val());
+
+        })
+    }
+
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/' />
@@ -34,7 +42,13 @@ class SignUp extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.setState({ error: null });
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then().catch(
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(
+            data => {
+                firebase.database().ref(`/users/${data.user.uid}`).set({
+                    shopkeeper: false,
+                    favs: []
+                })
+        }).catch(
             error => this.setState({ error })
         )
     };
