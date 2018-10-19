@@ -8,7 +8,6 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import Background from '../Search/backgroundImage.jpg';
-import Nav from '../Nav';
 import firebase from 'firebase';
 
 const styleSidebar = {
