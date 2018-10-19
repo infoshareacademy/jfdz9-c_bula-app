@@ -9,25 +9,26 @@ import signup from './signup.svg';
 import search from './search.svg';
 
 import './nav.css';
-// import SignIn from './SignIn/index.js';
-// import SignUp from './SignUp';
 
+import Logout from ".././Auth/logout";
+import IsAdmin from ".././Auth/isAdmin";
 
 function Nav() {
     return (
         <Fragment>
             <AppBar position="static" className="navigation">
                 <Toolbar>
+
                     <Button>
                         <Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link>
                     </Button>
-
                     <div className="navButtonAll">
                         <Button className="navButton">
                             <Link to="/home"><img src={search} alt=""/>
                                 <div className="navButtonIcon">Wyszukaj</div>
                             </Link>
                         </Button>
+                        <Logout>
                         <Button className="navButton">
                             <Link to="/signIn"><img src={signin} alt=""/>
                                 <div className="navButtonIcon">Zaloguj</div>
@@ -38,6 +39,14 @@ function Nav() {
                                 <div className="navButtonIcon">Zarejestruj</div>
                             </Link>
                         </Button>
+                        </Logout>
+                        <IsAdmin>
+                        <Button className="navButton">
+                            <Link to="/adminPanel"><img src={signup} alt=""/>
+                                <div className="navButtonIcon">Panel Administratora</div>
+                            </Link>
+                        </Button>
+                        </IsAdmin>
                     </div>
                 </Toolbar>
             </AppBar>

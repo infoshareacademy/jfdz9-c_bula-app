@@ -8,6 +8,8 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import Background from '../Search/backgroundImage.jpg';
+import Nav from '../Nav';
+import firebase from 'firebase';
 
 const styleInputPostal = {
     backgroundImage: `url(${ Background })`,
@@ -28,28 +30,24 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => {
-                this.setState({
-                    shops: shops,
-                })
-            });
-        fetch(process.env.PUBLIC_URL + '/data/categories.json')
-            .then(response => response.json())
-            .then(categories => {
-                this.setState({
-                    categories
-                })
-            });
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
-            .then(district => {
-                this.setState({
-                    district,
-                })
-            });
+
+        firebase.database().ref('/shops').on('value', snapshot => {
+            this.setState({
+                shops: snapshot.val(),
+            })
+        })
+
+        firebase.database().ref('/cathegories').on('value', snapshot => {
+            this.setState({
+                categories: snapshot.val(),
+            })
+        })
+
+        firebase.database().ref('/shops').on('value', snapshot => {
+            this.setState({
+                district: (snapshot.val().map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
+            })
+        })
     }
 
     setCategoryIds = categoryIds => {

@@ -1,8 +1,9 @@
 import React, {Component, Fragment } from 'react';
 import Home from './Home';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
 import Grid from '@material-ui/core/Grid';
+import SignUp from "./Auth/signUp";
+import SignIn from "./Auth/signIn";
+import AdminPanel from "./AdminPanel/adminPanel";
 import {
     BrowserRouter as Router,
     Route,
@@ -28,10 +29,11 @@ class App extends Component {
 
                             <Grid item xs={12}>
                                 <Switch>
-                                <Route exact path="/" component={Dashboard}/>
-                                <Route path="/home" component={Home}/>
-                                <Route path="/signIn" component={SignIn}/>
-                                <Route path="/signUp" component={SignUp}/>
+                                   <Route exact path="/" component={Dashboard}/>
+                                   <Route path="/home" component={Home}/>
+                                   <Route path="/SignIn" component={SignIn}/>
+                                   <Route path="/SignUp" component={SignUp}/>
+                                  <Route path="/AdminPanel" component={AdminPanel}/>
                                 </Switch>
                             </Grid>
                         </Grid>
