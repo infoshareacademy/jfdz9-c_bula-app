@@ -21,12 +21,14 @@ class Search extends Component {
     render() {
 
         return <Fragment>
-            <form onSubmit={this.onFormSubmit} style={{marginLeft:380}}>
+            <div className="form">
+            <form onSubmit={this.onFormSubmit}>
                 <label>
-                    <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
+                    <input style={{height:70, fontSize:40}} type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
                 </label>
-                <button className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
+                <button style={{height:60}} className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
             </form>
+            </div>
         </Fragment>
     }
 }
