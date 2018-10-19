@@ -11,8 +11,8 @@ import Background from '../Search/backgroundImage.jpg';
 
 const styleInputPostal = {
     backgroundImage: `url(${ Background })`,
-    paddingTop: '120px',
-    paddingBottom: '120px'
+    paddingTop: '110px',
+    paddingBottom: '110px'
 };
 
 class Home extends Component {
@@ -44,7 +44,7 @@ class Home extends Component {
             });
         fetch('/data/shops.json')
             .then(response => response.json())
-            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district), []))
+            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
             .then(district => {
                 this.setState({
                     district,
