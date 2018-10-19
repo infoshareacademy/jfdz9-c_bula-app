@@ -6,7 +6,6 @@ class AdminPanel extends Component {
 
     state = {
         users: [],
-        myPosition: null,
         checkUser: null
     };
     componentDidMount() {
@@ -63,7 +62,8 @@ class AdminPanel extends Component {
                             )
                         )
                     }
-                </ul>            </div>
+                </ul>
+            </div>
             </IsAdmin>
         )
     }
