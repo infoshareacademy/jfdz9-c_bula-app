@@ -8,11 +8,9 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import Background from '../Search/backgroundImage.jpg';
-import './home.css';
+import Nav from '../Nav';
+import firebase from 'firebase';
 
-const backgroundHome = {
-    // backgroundColor: '#f2f4f8',
-};
 const styleSidebar = {
     backgroundColor: '#f2f4f8',
 };
@@ -36,28 +34,24 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => {
-                this.setState({
-                    shops: shops,
-                })
-            });
-        fetch(process.env.PUBLIC_URL + '/data/categories.json')
-            .then(response => response.json())
-            .then(categories => {
-                this.setState({
-                    categories
-                })
-            });
-        fetch('/data/shops.json')
-            .then(response => response.json())
-            .then(shops => shops.map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[]))
-            .then(district => {
-                this.setState({
-                    district,
-                })
-            });
+
+        firebase.database().ref('/shops').on('value', snapshot => {
+            this.setState({
+                shops: snapshot.val(),
+            })
+        })
+
+        firebase.database().ref('/cathegories').on('value', snapshot => {
+            this.setState({
+                categories: snapshot.val(),
+            })
+        })
+
+        firebase.database().ref('/shops').on('value', snapshot => {
+            this.setState({
+                district: (snapshot.val().map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
+            })
+        })
     }
 
     setCategoryIds = categoryIds => {
@@ -81,8 +75,8 @@ class Home extends Component {
     render() {
         return (<Fragment>
                 <Router>
-                    <div >
-                        <Grid style={backgroundHome} container spacing={0}>
+                    <div>
+                        <Grid container spacing={0}>
                             <Grid style={styleInputPostal} item xs={12}>
                                 <Search onFormSubmit={this.onFormSubmit}/>
                             </Grid>

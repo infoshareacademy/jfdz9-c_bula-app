@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './signIn.css';
 
-class SignIn extends Component {
+class SignIn2 extends Component {
     state = {
         value: '',
     };
@@ -38,4 +38,4 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default SignIn2;
