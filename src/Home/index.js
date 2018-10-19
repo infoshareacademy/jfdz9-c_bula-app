@@ -75,7 +75,7 @@ class Home extends Component {
                                 <Nav/>
                             </Grid>
                             <Grid item xs={12}>
-                                <Paper><Search onFormSubmit={this.onFormSubmit}/></Paper>
+                                <Search onFormSubmit={this.onFormSubmit}/>
                             </Grid>
                             <Grid item xs={4}>
                                 <Paper>

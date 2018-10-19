@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Button from "@material-ui/core/es/Button/Button";
 import firebase from 'firebase'
+import {Link} from 'react-router-dom';
+import signup from '.././Nav/signup.svg';
 
 class Logout extends Component {
     state = {
@@ -22,14 +24,13 @@ class Logout extends Component {
                     this.state.user ?
                         <Fragment>
                             {this.state.user.email}
-                            {' '}
-                            <Button color="inherit" onClick={() => firebase.auth().signOut()}>
-                                Wyloguj
+                            <Button className="navButton" onClick={() => firebase.auth().signOut()}>
+                                <Link to="/"><img src={signup} alt=""/>
+                                    <div className="navButtonIcon">Wyloguj</div>
+                                </Link>
                             </Button>
                         </Fragment> :
-                        <Fragment>
-                            {this.props.children}
-                        </Fragment>
+                        <Fragment>{this.props.children}</Fragment>
                 }
 
             </div>

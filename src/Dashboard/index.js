@@ -4,13 +4,13 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './dashboard.css';
-import logo1 from './intro-header1.jpg';
-import logo2 from './intro-header2.jpg'
+import logo1 from './intro-header1.png';
+import logo2 from './intro-header2.png'
 import chart1 from './wykres.png'
 import chart2 from './wykres3.png'
 import chart3 from './wykres4.png'
 import chart4 from './wykres5.png'
-import cebula from './cebula.jpg'
+import cebula from './cebula.png'
 
 
 
@@ -62,15 +62,3 @@ CenteredGrid.propTypes = {
 
 export default withStyles(styles)(CenteredGrid);
 
-
-// import React, {Fragment} from  'react';
-//
-//
-// function Dashboard() {
-//     return (
-//         <Fragment>
-//             <h1>Zrób zakupy razem z nami</h1>
-//         </Fragment>
-//     )}
-//
-// export default Dashboard;
