@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
-import './search.css';
+// import './search.css';
+
+const searchButton = {
+    fontSize: '20px',
+    fontWeight: 'bold',
+};
+
+const searchLabel = {
+    fontSize: '16px',
+
+};
+const searchInput = {
+    marginLeft: '33%',
+};
+
+const backgroundHome = {
+    // backgroundColor: 'yellow',
+};
+
 
 class Search extends Component {
     state = {
@@ -21,12 +39,12 @@ class Search extends Component {
     render() {
 
         return (
-            <div className="form">
+            <div style={backgroundHome} className="form">
                  <form onSubmit={this.onFormSubmit}>
-                     <label>
-                        <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
+                     <label style={searchLabel}>
+                        <input style={searchInput} type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
                      </label>
-                 <button className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
+                     <button style={searchButton} className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
                 </form>
             </div>
         )

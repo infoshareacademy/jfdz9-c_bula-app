@@ -8,12 +8,20 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import Background from '../Search/backgroundImage.jpg';
+import './home.css';
 
+const backgroundHome = {
+    // backgroundColor: '#f2f4f8',
+};
+const styleSidebar = {
+    backgroundColor: '#f2f4f8',
+};
 const styleInputPostal = {
     backgroundImage: `url(${ Background })`,
     paddingTop: '110px',
     paddingBottom: '110px'
 };
+
 
 class Home extends Component {
 
@@ -73,12 +81,12 @@ class Home extends Component {
     render() {
         return (<Fragment>
                 <Router>
-                    <div>
-                        <Grid container spacing={0}>
+                    <div >
+                        <Grid style={backgroundHome} container spacing={0}>
                             <Grid style={styleInputPostal} item xs={12}>
                                 <Search onFormSubmit={this.onFormSubmit}/>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid style={styleSidebar} item xs={4}>
                                 <CheckboxesGroup categories={this.state.categories}
                                                  setCategoryIds={this.setCategoryIds}/>
                                 <ControlledOpenSelect onChange={this.onSelectedDistrict}

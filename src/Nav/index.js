@@ -7,15 +7,11 @@ import logo from './logo.png';
 import signin from './signin.svg';
 import signup from './signup.svg';
 import search from './search.svg';
-
 import './nav.css';
-// import SignIn from './SignIn/index.js';
-// import SignUp from './SignUp';
-
 
 function Nav() {
     return (
-        <Fragment>
+        <Fragment >
             <AppBar position="static" className="navigation">
                 <Toolbar>
                     <Button>
