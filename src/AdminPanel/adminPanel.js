@@ -24,12 +24,10 @@ class AdminPanel extends Component {
     handleChangeChk = id =>{
             this.setState({
                 users: this.state.users.map(user => {
-                    console.log(id)
                     if (user.id === id) {
                         firebase.database().ref(`/users/${id}/`).set({
                             shopkeeper: !user.shopkeeper
                         })
-                        console.log(id)
                     }
                     if (user.id === id) {
                         return {
@@ -40,7 +38,6 @@ class AdminPanel extends Component {
                     return user;
                 })
             }, () => {
-               console.log(this.state.users);
             })
         };
 
