@@ -14,7 +14,8 @@ import IsAdmin from ".././Auth/isAdmin";
 const styleNav = {
     display: 'flex',
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    // position: 'sticky'
 };
 const styleNavIcons = {
     display: 'flex',
