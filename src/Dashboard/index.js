@@ -1,62 +1,68 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import './dashboard.css';
-import logo1 from './intro-header1.png';
-import logo2 from './intro-header2.png'
-import chart1 from './wykres.png'
-import chart3 from './wykres4.png'
-import chart4 from './wykres5.png'
-import cebula from './cebula.png'
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
+import ReactFC from 'react-fusioncharts';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
+const myDataSource = {
+    "chart": {
+        "caption": "Liczba sklepów rośnie w zawrotowym tempie",
+        "subCaption": "rok 2018",
+        "xAxisName": "Miesiące",
+        "yAxisName": "Liczba sklepików",
+        "theme": "fusion"
     },
-    paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-});
-
-function CenteredGrid(props) {
-    const { classes } = props;
-
-    return (
-        <div className={classes.root}>
-            <Grid container spacing={24}>
-                <Grid item xs={12} lg={6}>
-                    <img className="main-foto" src={logo1} alt="intro-header"/>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                    <img className="main-foto" src={logo2} alt="intro-header2"/>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-
-                    <img className="chart" src={cebula} alt="chart"/>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                    <img className="chart" src={chart1} alt="chart2"/>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                    <img className="chart" src={chart3} alt="chart3"/>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                    <img className="chart2" src={chart4} alt="chart4"/>
-                </Grid>
-
-            </Grid>
-        </div>
-    );
-}
-
-CenteredGrid.propTypes = {
-    classes: PropTypes.object.isRequired,
+    "data": [
+               {
+            "label": "Kwiecień",
+            "value": "6"
+        },
+        {
+            "label": "Maj",
+            "value": "27"
+        },
+        {
+            "label": "Czerwiec",
+            "value": "58"
+        },
+        {
+            "label": "Lipiec",
+            "value": "158"
+        },
+        {
+            "label": "Sierpień",
+            "value": "256"
+        },
+        {
+            "label": "Wrzesień",
+            "value": "360"
+        },
+        {
+            "label": "Październik",
+            "value": "450"
+        }
+    ]
 };
 
-export default withStyles(styles)(CenteredGrid);
+const chartConfigs = {
+    type: 'column2d',
+    width: 800,
+    height: 400,
+    dataFormat: 'json',
+    dataSource: myDataSource,
+};
 
+class Dashboard extends React.Component {
+    render() {
+        return (
+            <ReactFC {...chartConfigs}/>
+        );
+    }
+}
+
+export default Dashboard
