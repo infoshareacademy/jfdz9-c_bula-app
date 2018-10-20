@@ -4,14 +4,29 @@
     padding-left: 30px;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.buttonFormSideBar {
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    background-color: #C6596F;
+    border: 1px;
+    /*margin-left: 10px;*/
+    /*padding: 0 17px 0 10px;*/
+    color: white;
+    font-size: 12px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .styleCheckbox {
         padding-left: 0;
     }
+
     .styleCheckbox span {
         padding-left: 2px;
     }
+
     span.MuiTypography-root-213.MuiTypography-body1-222.MuiFormControlLabel-label-242 {
         font-size: 12px;
     }
 }
+

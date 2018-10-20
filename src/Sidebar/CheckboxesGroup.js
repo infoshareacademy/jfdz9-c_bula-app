@@ -80,9 +80,11 @@ class CheckboxesGroup extends React.Component {
                             )
                         }
                     </FormGroup>
-                    <button onClick={() => this.showMore()}>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <button onClick={() => this.showMore()} className="buttonFormSideBar">
                         { this.state.allCategoriesVisible ? ( <span>MNIEJ</span> ) : ( <span>WIĘCEJ</span> ) }
                     </button>
+                    </div>
                 </FormControl>
             </div>
         );

@@ -62,5 +62,6 @@ input::-webkit-input-placeholder {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     h2 {
         font-size: 18px;
+        padding-left: 2px;
     }
 }
