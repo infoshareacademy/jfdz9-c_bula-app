@@ -1,39 +1,32 @@
 import React, { Component } from 'react';
 import MaskedInput from 'react-text-mask';
-import InputLabel from '@material-ui/core/InputLabel';
-
-// import './search.css';
+import arrow from './arrow.png';
 
 const searchButton = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-};
-
-const searchLabel = {
-    // fontSize: '7px',
-
+    borderTopRightRadius: '80px',
+    borderBottomRightRadius: '80px',
+    backgroundColor: '#76c143',
+    border: '1px',
+    marginLeft: '10px',
+    padding: '0 17px 0 10px',
 };
 const searchInput = {
-    // marginLeft: '35%',
     textAlign: 'center',
-    fontSize: '3.25rem',
+    fontSize: '3.75rem',
     backgroundColor: '#f2f4f8',
-    height: '5.5rem',
+    height: '6rem',
     color: '#444',
-    width: '13.5rem',
-};
-
-const backgroundHome = {
-    marginLeft: '35%',
-};
-
-const searhParagraph = {
-    color: 'whitesmoke',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    margin: '0',
+    width: '14.5rem',
+    borderRadius: '50px',
+    border: '1px',
 
 };
+const searchForm = {
+    display: 'flex',
+    justifyContent: 'center',
+};
+
+
 class Search extends Component {
     state = {
         value: '',
@@ -54,10 +47,8 @@ class Search extends Component {
     render() {
 
         return (
-            <div style={backgroundHome} className="form">
-                 <form onSubmit={this.onFormSubmit}>
-                     <p style={searhParagraph}>wprowadź kod pocztowy</p>
-                     {/*<InputLabel htmlFor="formatted-text-mask-input">kod pocztowy</InputLabel>*/}
+            <div className="form">
+                 <form style={searchForm} onSubmit={this.onFormSubmit}>
                      <MaskedInput
                          mask={[/[0-9]/, /\d/, '-', /\d/, /\d/, /\d/]}
                          placeholderChar={'\u2000'}
@@ -65,14 +56,11 @@ class Search extends Component {
                          title="wprowadź kod w formacie __-___"
                          name="name"
                          className="searchInput"
-                         // placeholder="kod pocztowy"
+                         placeholder="kod pocztowy"
                          onChange={this.onChange}
                          value={this.state.value}
                      />
-                     {/*<label style={searchLabel}>*/}
-                        {/*<input style={searchInput} type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>*/}
-                     {/*</label>*/}
-                     <button style={searchButton} className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
+                     <button style={searchButton} className="button" type="submit" value="Wyszukaj"><img src={arrow} alt="enter"/></button>
                 </form>
             </div>
         )

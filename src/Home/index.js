@@ -15,8 +15,8 @@ const styleSidebar = {
 };
 const styleInputPostal = {
     backgroundImage: `url(${ Background })`,
-    paddingTop: '110px',
-    paddingBottom: '110px'
+    paddingTop: '90px',
+    paddingBottom: '90px'
 };
 
 
@@ -38,19 +38,19 @@ class Home extends Component {
             this.setState({
                 shops: snapshot.val(),
             })
-        })
+        });
 
         firebase.database().ref('/cathegories').on('value', snapshot => {
             this.setState({
                 categories: snapshot.val(),
             })
-        })
+        });
 
         firebase.database().ref('/shops').on('value', snapshot => {
             this.setState({
                 district: (snapshot.val().map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
             })
-        })
+        });
     }
 
     setCategoryIds = categoryIds => {
