@@ -40,8 +40,8 @@ function Nav() {
                         </Logout>
                         <IsAdmin>
                             <Button className="navButton">
-                                <Link to="/adminPanel"><img src={signup} alt=""/>
-                                    <div className="navButtonIcon">Panel Administratora</div>
+                                <Link to="/adminPanel"><img src={signin} alt=""/>
+                                    <div className="navButtonIcon">Administrator</div>
                                 </Link>
                             </Button>
                         </IsAdmin>
