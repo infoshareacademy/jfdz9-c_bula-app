@@ -3,9 +3,10 @@ import MaskedInput from 'react-text-mask';
 import arrow from './arrow.png';
 
 const searchButton = {
-    borderTopRightRadius: '80px',
-    borderBottomRightRadius: '80px',
-    backgroundColor: '#76c143',
+    borderRadius: '50%',
+    height: '100px',
+    width: '100px',
+    backgroundColor: '#C6596F',
     border: '1px',
     marginLeft: '10px',
     padding: '0 17px 0 10px',
@@ -19,7 +20,6 @@ const searchInput = {
     width: '14.5rem',
     borderRadius: '50px',
     border: '1px',
-
 };
 const searchForm = {
     display: 'flex',
@@ -60,7 +60,8 @@ class Search extends Component {
                          onChange={this.onChange}
                          value={this.state.value}
                      />
-                     <button style={searchButton} className="button" type="submit" value="Wyszukaj"><img src={arrow} alt="enter"/></button>
+                     <button style={searchButton} className="button" type="submit" value="Wyszukaj">
+                         <i className="fas fa-arrow-right iconArrow"></i></button>
                 </form>
             </div>
         )
