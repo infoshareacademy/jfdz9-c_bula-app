@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import firebase from 'firebase'
 import IsAdmin from "../Auth/isAdmin";
-
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 class AdminPanel extends Component {
 
     state = {
@@ -85,27 +86,21 @@ class AdminPanel extends Component {
         })
     };
 
-    handleChangeDrop = (id, ...event) => {
-        const newItems = [...this.state.cathegory];
-        newItems[id] = event.target.value;
+    handleChangeCath = categoryId => event => {
         this.setState({
-            [event.target.name]: newItems
-        })
+            cathegory: this.state.cathegory.includes(categoryId) ?
+                this.state.cathegory.filter(id => id !== categoryId) :
+                this.state.cathegory.concat(categoryId)
+        }, () => {
+
+        });
     };
-
-    handleCaths = event =>{
-        event.preventDefault();
-        this.setState({
-            caths: this.state.caths+1,
-        })
-    }
-
-
     handleShopSubmit = event => {
         event.preventDefault();
         firebase.database().ref(`/shops/${this.state.shopId}`).set({
             description: this.state.description,
             name: this.state.name,
+            category_id:this.state.cathegory
         });
         firebase.database().ref(`/shops/${this.state.shopId}/address`).set({
             district: this.state.district,
@@ -122,7 +117,6 @@ class AdminPanel extends Component {
         });
         this.setState
         ({
-            district: '',
             postalCode: '',
             street: '',
             cathegory: [],
@@ -136,6 +130,7 @@ class AdminPanel extends Component {
             weekday_close: 0,
             weekday_open: 0,
             caths: 1,
+            district: '',
         })
     };
 
@@ -144,7 +139,6 @@ class AdminPanel extends Component {
 
 
     render() {
-        const cathRange = Array.from({ length: this.state.caths })
         return (
             <Fragment>
             <IsAdmin>
@@ -170,34 +164,26 @@ class AdminPanel extends Component {
                     <input name="name" value={this.state.name} onChange={this.handleChange}/>
                     <input name="description" value={this.state.description} onChange={this.handleChange}/>
                     <p>Kategorie:</p>
+                    {
+                        this.state.categories.map(
+                            category => (
+                                <FormControlLabel
+                                    key={category.id}
+                                    control={
+                                        <Checkbox checked={this.state.cathegory.includes(category.id)}
+                                                  onChange={this.handleChangeCath(category.id)}
+                                                  value={category.id.toString()} />
+                                    }
+                                    label={category.name}
 
-                        <select name={"cathegory"} onChange={() => this.handleChangeDrop(0)}>
-                        {
-                            this.state.categories.map(
-                                cathy => (
-                                    <option value={cathy.id}>{cathy.name}</option>
-                                )
+                                />
                             )
-                        }
-                        {console.log(this.state.cathegory)}
-                        {console.log(this.state.caths)}
-                        </select>
-                        <select name={"cathegory"} onChange={() => this.handleChangeDrop(1)}>
-                            {
-                                this.state.categories.map(
-                                    cathy => (
-                                        <option value={cathy.id}>{cathy.name}</option>
-                                    )
-                                )
-                            }
-                        </select>
-                    <button onClick={this.handleCaths}>+</button>
-
+                        )
+                    }
                     <p>Godziny otwarcia:</p>
 
                     <p>Sobota</p>
                     <select name={"saturday_open"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
@@ -207,7 +193,6 @@ class AdminPanel extends Component {
                         }
                     </select>
                     <select name={"saturday_close"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
@@ -218,7 +203,6 @@ class AdminPanel extends Component {
                     </select>
                     <p>Niedziela</p>
                     <select name={"sunday_open"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
@@ -228,7 +212,6 @@ class AdminPanel extends Component {
                         }
                     </select>
                     <select name={"sunday_close"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
@@ -239,7 +222,6 @@ class AdminPanel extends Component {
                     </select>
                     <p>Tydzien</p>
                     <select name={"weekday_open"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
@@ -249,7 +231,6 @@ class AdminPanel extends Component {
                         }
                     </select>
                     <select name={"weekday_close"} onChange={this.handleChange}>
-                        {console.log(this.state.time)}
                         {
                             this.state.time.map(
                                 cathy => (
