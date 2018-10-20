@@ -14,9 +14,10 @@ h2 {
     color: #444444;
 }
 input::-webkit-input-placeholder {
-    font-size: 16px;
+    font-size: 17px;
     text-align: center;
     color: #C6596F;
+    opacity: 0.4;
 }
 .flexForm {
     display: flex;
@@ -51,3 +52,8 @@ input::-webkit-input-placeholder {
     color: white;
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    h2 {
+        font-size: 18px;
+    }
+}
