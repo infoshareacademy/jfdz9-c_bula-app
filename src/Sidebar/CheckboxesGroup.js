@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import './sidebar.css';
 
 const styles = theme => ({
     root: {
@@ -52,7 +53,7 @@ class CheckboxesGroup extends React.Component {
                         {
                             this.props.categories.map(
                                 category => (
-                                    <FormControlLabel style={styleCheckbox}
+                                    <FormControlLabel className="styleCheckbox"
                                         key={category.id}
                                         control={
                                             <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
