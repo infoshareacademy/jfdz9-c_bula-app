@@ -11,10 +11,9 @@ import {
 } from 'react-router-dom';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
-
+import './main.css'
 
 class App extends Component {
-
 
 
     render() {
@@ -26,8 +25,7 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Nav/>
                             </Grid>
-
-                            <Grid item xs={12}>
+                            <Grid>
                                 <Switch>
                                    <Route exact path="/" component={Dashboard}/>
                                    <Route path="/home" component={Home}/>

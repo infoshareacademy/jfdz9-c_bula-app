@@ -7,16 +7,26 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-
 const styles = theme => ({
     root: {
         display: 'flex',
+        color: '#C6596F',
+        '&$checked': {
+            color: '#C6596F',
+        },
     },
+    checked: {},
     formControl: {
-        margin: theme.spacing.unit * 3,
+        margin: theme.spacing.unit,
     },
 });
+const styleCheckbox = {
+    fontSize: '20px'
+};
+const styleH2 = {
+    // fontSize: '16px',
 
+}
 class CheckboxesGroup extends React.Component {
 
     state = {
@@ -39,17 +49,22 @@ class CheckboxesGroup extends React.Component {
         return (
             <div className={classes.root}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend"><h2>Wybierz kategorie sklepów:</h2></FormLabel>
+                    <FormLabel component="legend"><h2 style={styleH2}>Szukaj po kategoriach</h2></FormLabel>
                     <FormGroup>
                         {
                             this.props.categories.map(
                                 category => (
-                                    <FormControlLabel
+                                    <FormControlLabel style={styleCheckbox}
                                         key={category.id}
                                         control={
                                             <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
                                                       onChange={this.handleChange(category.id)}
-                                                      value={category.id.toString()} />
+                                                      value={category.id.toString()}
+                                                      classes={{
+                                                      root: classes.root,
+                                                          checked: classes.checked,
+                                                      }}
+                                            />
                                         }
                                         label={category.name}
                                     />

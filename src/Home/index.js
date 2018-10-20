@@ -8,14 +8,17 @@ import {
     BrowserRouter as Router,
 } from 'react-router-dom';
 import Background from '../Search/backgroundImage.jpg';
-import Nav from '../Nav';
 import firebase from 'firebase';
 
+const styleSidebar = {
+    backgroundColor: '#f2f4f8',
+};
 const styleInputPostal = {
     backgroundImage: `url(${ Background })`,
     paddingTop: '110px',
     paddingBottom: '110px'
 };
+
 
 class Home extends Component {
 
@@ -76,7 +79,7 @@ class Home extends Component {
                             <Grid style={styleInputPostal} item xs={12}>
                                 <Search onFormSubmit={this.onFormSubmit}/>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid style={styleSidebar} item xs={4}>
                                 <CheckboxesGroup categories={this.state.categories}
                                                  setCategoryIds={this.setCategoryIds}/>
                                 <ControlledOpenSelect onChange={this.onSelectedDistrict}
