@@ -42,12 +42,10 @@ class CheckboxesGroup extends React.Component {
         });
     };
 
-    showMore(showAll) {
-        showAll ? (
-            this.setState({ allCategoriesVisible: true })
-        ) : (
-            this.setState({ allCategoriesVisible: false })
-        )
+    showMore() {
+        this.setState(state => ({
+            allCategoriesVisible: !state.allCategoriesVisible
+        }));
     }
 
     render() {
@@ -85,7 +83,7 @@ class CheckboxesGroup extends React.Component {
                             )
                         }
                     </FormGroup>
-                    <button onClick={this.showMore}>Więcej</button>
+                    <button onClick={() => this.showMore()}>Więcej</button>
                 </FormControl>
             </div>
         );
