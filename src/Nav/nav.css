@@ -2,6 +2,7 @@
 .MuiToolbar-root-37 {
     background-color: white;
 }
+
 .navigation img {
     height: 50px;
     padding: 2px;
@@ -15,13 +16,11 @@
     padding-top: 5px;
 }
 
-/*.navButtonAll {*/
-    /*margin-left: 270px;*/
-/*}*/
 .MuiTypography-colorInherit-77 {
     color: white;
     font-size: 28px;
 }
+
 .MuiTypography-root-57 {
     margin-left: 100px;
     display: block;
@@ -29,4 +28,21 @@
 
 .MuiGrid-grid-xs-12-41 {
     padding-bottom: 80px;
+}
+
+.styleNav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.navButtonAll {
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .styleNav {
+        flex-direction: column;
+    }
 }

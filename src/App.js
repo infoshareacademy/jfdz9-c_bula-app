@@ -25,7 +25,7 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Nav/>
                             </Grid>
-                            <Grid>
+                            <Grid style={{display: 'flex', flexGrow: 1, justifyContent: 'center'}}>
                                 <Switch>
                                    <Route exact path="/" component={Dashboard}/>
                                    <Route exact path="/dashboard" component={Dashboard}/>
