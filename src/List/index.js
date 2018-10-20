@@ -36,6 +36,13 @@ const styleShopContener = {
 const styleShopItem = {
     paddingLeft: '30px',
 };
+const styleShopOpenHours = {
+    fontSize: '12px',
+    padding: '40px 40px 0 0',
+};
+const styleMargin = {
+    margin: '0',
+};
 class List extends Component {
 
 
@@ -55,7 +62,7 @@ class List extends Component {
                     shop => (
                         <div key={shop.id}>
                             <Paper>
-                                <Grid container spacing={24}>
+                                <Grid container spacing={24} style={styleMargin}>
                                     <Grid item style={styleShopContener}>
                                         <ButtonBase className={classes.image}>
                                             <img className={classes.img} alt="logo-sklepu" src={shop.image}/>
@@ -64,7 +71,7 @@ class List extends Component {
                                     <Grid item xs={12} sm container>
                                         <Grid item xs container direction="column" spacing={16}>
                                             <Grid style={styleShopItem} item xs>
-                                                <Typography gutterBottom >
+                                                <Typography gutterBottom>
                                                     <h1>{shop.name}</h1>
                                                 </Typography>
                                                 <Typography color="textSecondary">
@@ -75,13 +82,13 @@ class List extends Component {
                                                 </Typography>
                                             </Grid>
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item style={styleShopOpenHours}>
                                             <Typography
-                                                color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
+                                                color="textSecondary">{`Pn-Pt: ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
                                             <Typography
-                                                color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
+                                                color="textSecondary">{`Sb: ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
                                             <Typography
-                                                color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
+                                                color="textSecondary">{`Nd: ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
 
                                         </Grid>
                                     </Grid>
