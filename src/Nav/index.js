@@ -11,26 +11,16 @@ import './nav.css';
 import Logout from ".././Auth/logout";
 import IsAdmin from ".././Auth/isAdmin";
 
-const styleNav = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    // position: 'sticky'
-};
-const styleNavIcons = {
-    display: 'flex',
-    flexDirection: 'row'
-};
 
 function Nav() {
     return (
         <Fragment>
             <AppBar position="static" className="navigation">
-                <Toolbar style={styleNav}>
+                <Toolbar className="styleNav">
                     <Button>
                         <Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link>
                     </Button>
-                    <div style={styleNavIcons} className="navButtonAll">
+                    <div className="navButtonAll">
                         <Button className="navButton">
                             <Link to="/home"><img src={search} alt=""/>
                                 <div className="navButtonIcon">Wyszukaj</div>
