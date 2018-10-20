@@ -21,7 +21,8 @@ const styles = theme => ({
     },
 });
 const styleCheckbox = {
-    fontSize: '20px'
+    fontSize: '20px',
+    paddingLeft: '30px'
 };
 const styleH2 = {
     // fontSize: '16px',
