@@ -1,0 +1,15 @@
+
+.styleCheckbox {
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .styleCheckbox {
+        padding-left: 0;
+        font-size: 16px;
+    }
+    .styleCheckbox span {
+        padding-left: 3px;
+    }
+}
