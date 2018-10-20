@@ -4,6 +4,7 @@ import Modal from "react-responsive-modal";
 import { Redirect } from 'react-router-dom'
 import Logged from "./logged";
 
+
 class SignIn extends Component {
 
     state = {
@@ -18,7 +19,8 @@ class SignIn extends Component {
         if (this.state.redirect) {
             return <Redirect to='/' />
         }
-    }
+    };
+
     onCloseModal = () => {
         this.setState({ open: false });
         this.setState({ redirect: true });
@@ -45,12 +47,12 @@ class SignIn extends Component {
                 {this.renderRedirect()}
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <Logged>
-                    <form onSubmit={this.handleSubmit}>
+                    <form className="flexForm" onSubmit={this.handleSubmit}>
                         <h1>Zaloguj się</h1>
                         { this.state.error && <p>{this.state.error.message} ({this.state.error.code})</p> }
-                        <input name="email" value={this.state.email} onChange={this.handleChange}/>
-                        <input name="password" value={this.state.password} onChange={this.handleChange}/>
-                        <button>Sign in</button>
+                        <input className="inputForm" name="email" value={this.state.email} onChange={this.handleChange}/>
+                        <input className="inputForm" name="password" value={this.state.password} onChange={this.handleChange}/>
+                        <button className="buttonForm">ZALOGUJ</button>
                     </form>
                     </Logged>
                 </Modal>

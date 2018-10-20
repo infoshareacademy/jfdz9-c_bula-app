@@ -10,9 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 const styles = theme => ({
     root: {
         display: 'flex',
-        color: '#76c143',
+        color: '#C6596F',
         '&$checked': {
-            color: '#76c143',
+            color: '#C6596F',
         },
     },
     checked: {},

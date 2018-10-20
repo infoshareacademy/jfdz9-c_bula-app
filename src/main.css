@@ -16,5 +16,38 @@ h2 {
 input::-webkit-input-placeholder {
     font-size: 16px;
     text-align: center;
-    color: #76c143;
+    color: #C6596F;
 }
+.flexForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+.inputForm {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #f2f4f8;
+    height: 4rem;
+    color: #444;
+    width: 20rem;
+    border-radius: 50px;
+    border: 1px;
+    margin-bottom: 20px;
+}
+
+.buttonForm {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-color: #C6596F;
+    border: 1px;
+    margin-left: 10px;
+    padding: 0 17px 0 10px;
+    color: white;
+}
+.iconArrow {
+    font-size: 30px;
+    color: white;
+}
+

@@ -18,7 +18,7 @@ class SignUp extends Component {
         if (this.state.redirect) {
             return <Redirect to='/' />
         }
-    }
+    };
 
     onCloseModal = () => {
         this.setState({ open: false });
@@ -54,12 +54,12 @@ class SignUp extends Component {
                 {this.renderRedirect()}
                 <Modal open={open} onClose={this.onCloseModal} center>
                     <Logged>
-                   <form onSubmit={this.handleSubmit}>
+                   <form className="flexForm" onSubmit={this.handleSubmit}>
                         <h1>Zarejestruj się</h1>
                       { this.state.error && <p>{this.state.error.message} ({this.state.error.code})</p> }
-                      <input name="email" value={this.state.email} onChange={this.handleChange}/>
-                      <input name="password" value={this.state.password} onChange={this.handleChange}/>
-                      <button>Register</button>
+                      <input className="inputForm" name="email" value={this.state.email} onChange={this.handleChange}/>
+                      <input className="inputForm" name="password" value={this.state.password} onChange={this.handleChange}/>
+                      <button className="buttonForm">Zajerestruj</button>
                    </form>
                     </Logged>
                 </Modal>
