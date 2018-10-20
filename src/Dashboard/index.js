@@ -29,23 +29,23 @@ function CenteredGrid(props) {
     return (
         <div className={classes.root}>
             <Grid container spacing={24}>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <img className="main-foto" src={logo1} alt="intro-header"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <img className="main-foto" src={logo2} alt="intro-header2"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
 
                     <img className="chart" src={cebula} alt="chart"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <img className="chart" src={chart1} alt="chart2"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <img className="chart" src={chart3} alt="chart3"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={6}>
                     <img className="chart2" src={chart4} alt="chart4"/>
                 </Grid>
 

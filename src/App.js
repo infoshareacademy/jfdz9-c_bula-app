@@ -28,6 +28,7 @@ class App extends Component {
                             <Grid>
                                 <Switch>
                                    <Route exact path="/" component={Dashboard}/>
+                                   <Route exact path="/dashboard" component={Dashboard}/>
                                    <Route path="/home" component={Home}/>
                                    <Route path="/SignIn" component={SignIn}/>
                                    <Route path="/SignUp" component={SignUp}/>
