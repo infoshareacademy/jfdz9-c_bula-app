@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-// import './search.css';
+import MaskedInput from 'react-text-mask';
+import arrow from './arrow.png';
 
 const searchButton = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-};
-
-const searchLabel = {
-    fontSize: '16px',
-
+    borderTopRightRadius: '80px',
+    borderBottomRightRadius: '80px',
+    backgroundColor: '#76c143',
+    border: '1px',
+    marginLeft: '10px',
+    padding: '0 17px 0 10px',
 };
 const searchInput = {
-    marginLeft: '33%',
-};
+    textAlign: 'center',
+    fontSize: '3.75rem',
+    backgroundColor: '#f2f4f8',
+    height: '6rem',
+    color: '#444',
+    width: '14.5rem',
+    borderRadius: '50px',
+    border: '1px',
 
-const backgroundHome = {
-    // backgroundColor: 'yellow',
+};
+const searchForm = {
+    display: 'flex',
+    justifyContent: 'center',
 };
 
 
@@ -39,12 +47,20 @@ class Search extends Component {
     render() {
 
         return (
-            <div style={backgroundHome} className="form">
-                 <form onSubmit={this.onFormSubmit}>
-                     <label style={searchLabel}>
-                        <input style={searchInput} type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
-                     </label>
-                     <button style={searchButton} className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
+            <div className="form">
+                 <form style={searchForm} onSubmit={this.onFormSubmit}>
+                     <MaskedInput
+                         mask={[/[0-9]/, /\d/, '-', /\d/, /\d/, /\d/]}
+                         placeholderChar={'\u2000'}
+                         style={searchInput}
+                         title="wprowadź kod w formacie __-___"
+                         name="name"
+                         className="searchInput"
+                         placeholder="kod pocztowy"
+                         onChange={this.onChange}
+                         value={this.state.value}
+                     />
+                     <button style={searchButton} className="button" type="submit" value="Wyszukaj"><img src={arrow} alt="enter"/></button>
                 </form>
             </div>
         )

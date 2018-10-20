@@ -11,5 +11,10 @@ h1 {
 }
 h2 {
     font-size: 24px;
-    color: #C6596F;
+    color: #444444;
+}
+input::-webkit-input-placeholder {
+    font-size: 16px;
+    text-align: center;
+    color: #76c143;
 }

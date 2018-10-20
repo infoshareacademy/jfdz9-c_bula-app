@@ -10,9 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 const styles = theme => ({
     root: {
         display: 'flex',
-        color: '#C6596F',
+        color: '#76c143',
         '&$checked': {
-            color: '#C6596F',
+            color: '#76c143',
         },
     },
     checked: {},
@@ -21,12 +21,10 @@ const styles = theme => ({
     },
 });
 const styleCheckbox = {
-    fontSize: '20px'
+    fontSize: '20px',
+    paddingLeft: '30px'
 };
-const styleH2 = {
-    // fontSize: '16px',
 
-}
 class CheckboxesGroup extends React.Component {
 
     state = {
@@ -49,7 +47,7 @@ class CheckboxesGroup extends React.Component {
         return (
             <div className={classes.root}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend"><h2 style={styleH2}>Szukaj po kategoriach</h2></FormLabel>
+                    <FormLabel component="legend"><h2>Szukaj po kategoriach</h2></FormLabel>
                     <FormGroup>
                         {
                             this.props.categories.map(
