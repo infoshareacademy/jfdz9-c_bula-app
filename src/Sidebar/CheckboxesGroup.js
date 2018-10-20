@@ -28,7 +28,8 @@ const styleCheckbox = {
 class CheckboxesGroup extends React.Component {
 
     state = {
-        selectedCategoryIds: []
+        selectedCategoryIds: [],
+        allCategoriesVisible: false
     };
 
     handleChange = categoryId => event => {
@@ -41,8 +42,22 @@ class CheckboxesGroup extends React.Component {
         });
     };
 
+    showMore(showAll) {
+        showAll ? (
+            this.setState({ allCategoriesVisible: true })
+        ) : (
+            this.setState({ allCategoriesVisible: false })
+        )
+    }
+
     render() {
         const { classes } = this.props;
+        let categories = this.props.categories;
+
+        console.log(this.state.allCategoriesVisible);
+        if (!this.state.allCategoriesVisible) {
+            categories = this.props.categories.slice(0,5)
+        }
 
         return (
             <div className={classes.root}>
@@ -50,26 +65,27 @@ class CheckboxesGroup extends React.Component {
                     <FormLabel component="legend"><h2>Szukaj po kategoriach</h2></FormLabel>
                     <FormGroup>
                         {
-                            this.props.categories.map(
+                            categories.map(
                                 category => (
                                     <FormControlLabel style={styleCheckbox}
-                                        key={category.id}
-                                        control={
-                                            <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
-                                                      onChange={this.handleChange(category.id)}
-                                                      value={category.id.toString()}
-                                                      classes={{
-                                                      root: classes.root,
-                                                          checked: classes.checked,
-                                                      }}
-                                            />
-                                        }
-                                        label={category.name}
+                                                      key={category.id}
+                                                      control={
+                                                          <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
+                                                                    onChange={this.handleChange(category.id)}
+                                                                    value={category.id.toString()}
+                                                                    classes={{
+                                                                        root: classes.root,
+                                                                        checked: classes.checked,
+                                                                    }}
+                                                          />
+                                                      }
+                                                      label={category.name}
                                     />
                                 )
                             )
                         }
                     </FormGroup>
+                    <button onClick={this.showMore}>Więcej</button>
                 </FormControl>
             </div>
         );
