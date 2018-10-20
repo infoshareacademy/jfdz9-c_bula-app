@@ -11,22 +11,29 @@ import './nav.css';
 import Logout from ".././Auth/logout";
 import IsAdmin from ".././Auth/isAdmin";
 
+const styleNav = {
+    display: 'flex',
+    justifyContent: 'space-between'
+};
+const styleNavIcons = {
+
+};
+
 function Nav() {
     return (
-        <Fragment >
-            <AppBar position="static" className="navigation">
-                <Toolbar>
-
+        <Fragment>
+            <AppBar  position="static" className="navigation">
+                <Toolbar style={styleNav}>
                     <Button>
                         <Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link>
                     </Button>
-                    <div className="navButtonAll">
+                    <div style={styleNavIcons} className="navButtonAll">
                         <Button className="navButton">
                             <Link to="/home"><img src={search} alt=""/>
                                 <div className="navButtonIcon">Wyszukaj</div>
                             </Link>
                         </Button>
-                        <Logout>
+
                         <Button className="navButton">
                             <Link to="/signIn"><img src={signin} alt=""/>
                                 <div className="navButtonIcon">Zaloguj</div>
@@ -37,13 +44,13 @@ function Nav() {
                                 <div className="navButtonIcon">Zarejestruj</div>
                             </Link>
                         </Button>
-                        </Logout>
+
                         <IsAdmin>
-                        <Button className="navButton">
-                            <Link to="/adminPanel"><img src={signup} alt=""/>
-                                <div className="navButtonIcon">Panel Administratora</div>
-                            </Link>
-                        </Button>
+                            <Button className="navButton">
+                                <Link to="/adminPanel"><img src={signup} alt=""/>
+                                    <div className="navButtonIcon">Panel Administratora</div>
+                                </Link>
+                            </Button>
                         </IsAdmin>
                     </div>
                 </Toolbar>
