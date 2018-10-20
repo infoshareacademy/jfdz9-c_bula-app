@@ -13,16 +13,18 @@ import IsAdmin from ".././Auth/isAdmin";
 
 const styleNav = {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    flexDirection: 'row'
 };
 const styleNavIcons = {
-
+    display: 'flex',
+    flexDirection: 'row'
 };
 
 function Nav() {
     return (
         <Fragment>
-            <AppBar  position="static" className="navigation">
+            <AppBar position="static" className="navigation">
                 <Toolbar style={styleNav}>
                     <Button>
                         <Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link>
@@ -33,18 +35,18 @@ function Nav() {
                                 <div className="navButtonIcon">Wyszukaj</div>
                             </Link>
                         </Button>
-
-                        <Button className="navButton">
-                            <Link to="/signIn"><img src={signin} alt=""/>
-                                <div className="navButtonIcon">Zaloguj</div>
-                            </Link>
-                        </Button>
-                        <Button className="navButton">
-                            <Link to="/signUp"><img src={signup} alt=""/>
-                                <div className="navButtonIcon">Zarejestruj</div>
-                            </Link>
-                        </Button>
-
+                        <Logout>
+                            <Button className="navButton">
+                                <Link to="/signIn"><img src={signin} alt=""/>
+                                    <div className="navButtonIcon">Zaloguj</div>
+                                </Link>
+                            </Button>
+                            <Button className="navButton">
+                                <Link to="/signUp"><img src={signup} alt=""/>
+                                    <div className="navButtonIcon">Zarejestruj</div>
+                                </Link>
+                            </Button>
+                        </Logout>
                         <IsAdmin>
                             <Button className="navButton">
                                 <Link to="/adminPanel"><img src={signup} alt=""/>
