@@ -64,4 +64,13 @@ input::-webkit-input-placeholder {
         font-size: 18px;
         padding-left: 2px;
     }
+    .inputForm {
+        font-size: 1.25rem;
+        height: 2.5rem;
+        width: 15rem;
+        margin-bottom: 20px;
+    }
+    .flexForm {
+        margin: 13px;
+    }
 }
