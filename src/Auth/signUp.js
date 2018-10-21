@@ -58,7 +58,7 @@ class SignUp extends Component {
                         <h1>Zarejestruj się</h1>
                       { this.state.error && <p>{this.state.error.message} ({this.state.error.code})</p> }
                       <input className="inputForm" name="email" value={this.state.email} onChange={this.handleChange}/>
-                      <input className="inputForm" name="password" value={this.state.password} onChange={this.handleChange}/>
+                      <input className="inputForm" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
                       <button className="buttonForm">Zajerestruj</button>
                    </form>
                     </Logged>

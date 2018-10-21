@@ -75,7 +75,7 @@ class Home extends Component {
         return (<Fragment>
                 {console.log(this.state.timeout)}
                 <Router>
-                    <div>
+                    <div style={{width: '100%'}}>
                         <Grid container spacing={0}>
                             <Grid style={styleInputPostal} item xs={12}>
                                 <Search onFormSubmit={this.onFormSubmit}/>
