@@ -49,7 +49,6 @@ class CheckboxesGroup extends React.Component {
         const { classes } = this.props;
         let categories = this.props.categories;
 
-        console.log(this.state.allCategoriesVisible);
         if (!this.state.allCategoriesVisible) {
             categories = this.props.categories.slice(0,5)
         }
