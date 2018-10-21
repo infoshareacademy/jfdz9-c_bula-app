@@ -3,13 +3,15 @@ import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid'
 import ChartLine from "./ChartLine";
 import ChartBlue from "./ChartBlue";
+import Paper from '@material-ui/core/Paper';
 
 
 class Dashboard extends Component {
 
     render() {
         return (
-            <Grid container>
+            <Grid container spacing={24}>
+                <Paper style={{margin: '20px'}}>
                 <Grid item xs={12} md={6}
                       direction="row"
                       justify="space-around"
@@ -17,6 +19,8 @@ class Dashboard extends Component {
                 >
                     <ChartLine/>
                 </Grid>
+                </Paper>
+                <Paper style={{margin: '20px'}}>
                 <Grid item xs={12} md={6}
                       direction="row"
                       justify="space-around"
@@ -24,6 +28,7 @@ class Dashboard extends Component {
                 >
                     <ChartBlue/>
                 </Grid>
+                </Paper>
             </Grid>
         )
     }
