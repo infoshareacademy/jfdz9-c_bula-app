@@ -1,18 +1,15 @@
-import './dashboard.css';
-
 import React from 'react';
-import ReactDOM from 'react-dom';
 import FusionCharts from 'fusioncharts';
 import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography';
 
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
 const myDataSource = {
     "chart": {
-        "caption": "Liczba sklepów rośnie w zawrotowym tempie",
-        "subCaption": "rok 2018",
         "xAxisName": "Miesiące",
         "yAxisName": "Liczba sklepików",
         "theme": "fusion"
@@ -51,16 +48,30 @@ const myDataSource = {
 
 const chartConfigs = {
     type: 'column2d',
-    width: 800,
-    height: 400,
+    width: 500,
+    height: 300,
     dataFormat: 'json',
     dataSource: myDataSource,
+    color: 'red',
+    backgroundColor: 'yellow',
 };
 
 class ChartBlue extends React.Component {
     render() {
         return (
-            <ReactFC {...chartConfigs}/>
+            <Grid
+                direction="row"
+                alignItems="center"
+            >
+                <Typography color="inherit" style={{fontSize: '30', fontWeight: 'bold', color: '#444444',  margin: 10, textAlign: 'center'}}>
+                    LICZBA SKLEPIKÓW OSIEDLOWYCH
+                </Typography>
+                <Typography color="inherit" style={{fontSize: '18', width: 400, margin: 10, textAlign: 'center'}}>
+                    Co raz więcej sklepików osiedlowych. Sprawdź jakie są w Twojej okolicy
+
+                </Typography>
+                <ReactFC {...chartConfigs}/>
+            </Grid>
         );
     }
 }
