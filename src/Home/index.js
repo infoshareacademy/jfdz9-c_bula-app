@@ -30,7 +30,6 @@ class Home extends Component {
         districtIds: [],
         shops: [],
         selectedDistrict: '',
-        timeout: true
     };
 
     componentDidMount() {
@@ -46,21 +45,13 @@ class Home extends Component {
                 categories: snapshot.val(),
             })
         });
-
-       this.state.timeout && firebase.database().ref('/shops').on('value', snapshot => {
+        firebase.database().ref('/shops').on('value', snapshot => {
             this.setState({
-                district: (snapshot.val().map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
-                timeout: false
+                district: (snapshot.val().map(shop => shop.address ? shop.address.district : shop).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
             })
         });
     }
 
-    componentDidUpdate(){
-        this.state.timeout === false && setTimeout(this.setState({
-            timeout: true
-        }), 250)
-
-    }
 
     setCategoryIds = categoryIds => {
         this.setState({
