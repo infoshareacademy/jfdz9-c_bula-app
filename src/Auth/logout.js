@@ -19,11 +19,11 @@ class Logout extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
                 {
                     this.state.user ?
                         <Fragment>
-                            {this.state.user.email}
+                            <p style={{color: 'black', margin: '0 20px 0 20px', marginTop: '40px'}}>{this.state.user.email}</p>
                             <Button className="navButton" onClick={() => firebase.auth().signOut()}>
                                 <Link to="/"><img src={logout} alt=""/>
                                     <div className="navButtonIcon">Wyloguj</div>
