@@ -4,14 +4,11 @@ import {withStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-    button: {
-        display: 'block',
-        marginTop: theme.spacing.unit * 2,
-    },
     formControl: {
         margin: theme.spacing.unit,
         minWidth: 120,
@@ -33,9 +30,7 @@ class ControlledOpenSelect extends React.Component {
 
         return (
             <form autoComplete="off">
-                <Button className={classes.button}>
-                    Wybierz dzielnicę:
-                </Button>
+                <FormLabel component="legend"><h2>Szukaj po osiedlu</h2></FormLabel>
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="demo-controlled-open-select">Dzielnica</InputLabel>
                     <Select
@@ -50,10 +45,10 @@ class ControlledOpenSelect extends React.Component {
                         </MenuItem>
                         {
                             this.props.district.map(
-                            district => (
-                                <MenuItem value={district} key={district}>{district}</MenuItem>
+                                district => (
+                                    <MenuItem value={district} key={district}>{district}</MenuItem>
+                                )
                             )
-                        )
                         }
 
                     </Select>

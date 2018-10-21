@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 // import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-// import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
@@ -13,7 +13,7 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
         maxWidth: 600,
-        padding: theme.spacing.unit * 5,
+        padding: theme.spacing.unit,
         marginBottom: 30,
     },
     image: {
@@ -30,7 +30,19 @@ const styles = theme => ({
         color: 'green',
     }
 });
-
+const styleShopContener = {
+    padding: '20px 0px 20px 30px',
+};
+const styleShopItem = {
+    paddingLeft: '30px',
+};
+const styleShopOpenHours = {
+    fontSize: '12px',
+    padding: '40px 40px 0 0',
+};
+const styleMargin = {
+    margin: '0',
+};
 class List extends Component {
 
 
@@ -49,39 +61,39 @@ class List extends Component {
                 ).map(
                     shop => (
                         <div key={shop.id}>
-                            {/*<Paper>*/}
-                                <Grid container spacing={24}>
-                                    <Grid item>
+                            <Paper>
+                                <Grid container spacing={24} style={styleMargin}>
+                                    <Grid item style={styleShopContener}>
                                         <ButtonBase className={classes.image}>
                                             <img className={classes.img} alt="logo-sklepu" src={shop.image}/>
                                         </ButtonBase>
                                     </Grid>
                                     <Grid item xs={12} sm container>
                                         <Grid item xs container direction="column" spacing={16}>
-                                            <Grid item xs>
-                                                <Typography gutterBottom variant="display1">
-                                                    {shop.name}
+                                            <Grid style={styleShopItem} item xs>
+                                                <Typography gutterBottom>
+                                                    <h1>{shop.name}</h1>
                                                 </Typography>
                                                 <Typography color="textSecondary">
                                                     {shop.address.postalCode} {shop.address.district} {shop.address.street}
                                                 </Typography>
-                                                <Typography variant="subheading" gutterBottom>
-                                                    {shop.description}
+                                                <Typography gutterBottom>
+                                                    <p>{shop.description}</p>
                                                 </Typography>
                                             </Grid>
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item style={styleShopOpenHours}>
                                             <Typography
-                                                color="textSecondary">{`Pn-Pt ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
+                                                color="textSecondary">{`Pn-Pt: ${shop.openingHours.weekday_open} - ${shop.openingHours.weekday_close}`}</Typography>
                                             <Typography
-                                                color="textSecondary">{`Sb ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
+                                                color="textSecondary">{`Sb: ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
                                             <Typography
-                                                color="textSecondary">{`Nd ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
+                                                color="textSecondary">{`Nd: ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
 
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                            {/*</Paper>*/}
+                            </Paper>
                         </div>
                     )
                 )}

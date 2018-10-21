@@ -7,18 +7,16 @@ import logo from './logo.png';
 import signin from './signin.svg';
 import signup from './signup.svg';
 import search from './search.svg';
-
 import './nav.css';
-
 import Logout from ".././Auth/logout";
 import IsAdmin from ".././Auth/isAdmin";
+
 
 function Nav() {
     return (
         <Fragment>
             <AppBar position="static" className="navigation">
-                <Toolbar>
-
+                <Toolbar className="styleNav">
                     <Button>
                         <Link to="/dashboard"><img src={logo} alt="logo C-bulla"/></Link>
                     </Button>
@@ -29,23 +27,23 @@ function Nav() {
                             </Link>
                         </Button>
                         <Logout>
-                        <Button className="navButton">
-                            <Link to="/signIn"><img src={signin} alt=""/>
-                                <div className="navButtonIcon">Zaloguj</div>
-                            </Link>
-                        </Button>
-                        <Button className="navButton">
-                            <Link to="/signUp"><img src={signup} alt=""/>
-                                <div className="navButtonIcon">Zarejestruj</div>
-                            </Link>
-                        </Button>
+                            <Button className="navButton">
+                                <Link to="/signIn"><img src={signin} alt=""/>
+                                    <div className="navButtonIcon">Zaloguj</div>
+                                </Link>
+                            </Button>
+                            <Button className="navButton">
+                                <Link to="/signUp"><img src={signup} alt=""/>
+                                    <div className="navButtonIcon">Zarejestruj</div>
+                                </Link>
+                            </Button>
                         </Logout>
                         <IsAdmin>
-                        <Button className="navButton">
-                            <Link to="/adminPanel"><img src={signup} alt=""/>
-                                <div className="navButtonIcon">Panel Administratora</div>
-                            </Link>
-                        </Button>
+                            <Button className="navButton">
+                                <Link to="/adminPanel"><img src={signin} alt=""/>
+                                    <div className="navButtonIcon">Administrator</div>
+                                </Link>
+                            </Button>
                         </IsAdmin>
                     </div>
                 </Toolbar>

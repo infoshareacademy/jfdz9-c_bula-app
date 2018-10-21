@@ -1,5 +1,31 @@
 import React, { Component } from 'react';
-import './search.css';
+import MaskedInput from 'react-text-mask';
+import arrow from './arrow.png';
+
+const searchButton = {
+    borderRadius: '50%',
+    height: '100px',
+    width: '100px',
+    backgroundColor: '#C6596F',
+    border: '1px',
+    marginLeft: '10px',
+    padding: '0 17px 0 10px',
+};
+const searchInput = {
+    textAlign: 'center',
+    fontSize: '3.75rem',
+    backgroundColor: '#f2f4f8',
+    height: '6rem',
+    color: '#444',
+    width: '14.5rem',
+    borderRadius: '50px',
+    border: '1px',
+};
+const searchForm = {
+    display: 'flex',
+    justifyContent: 'center',
+};
+
 
 class Search extends Component {
     state = {
@@ -22,11 +48,20 @@ class Search extends Component {
 
         return (
             <div className="form">
-                 <form onSubmit={this.onFormSubmit}>
-                     <label>
-                        <input type="text" pattern=".{6,6}" title="wprowadź kod w formacie __-___" name="name" className="searchInput" placeholder="kod pocztowy" onChange={this.onChange} value={this.state.value}/>
-                     </label>
-                 <button className="button" type="submit" value="Wyszukaj">Wyszukaj</button>
+                 <form style={searchForm} onSubmit={this.onFormSubmit}>
+                     <MaskedInput
+                         mask={[/[0-9]/, /\d/, '-', /\d/, /\d/, /\d/]}
+                         placeholderChar={'\u2000'}
+                         style={searchInput}
+                         title="wprowadź kod w formacie __-___"
+                         name="name"
+                         className="searchInput"
+                         placeholder="kod pocztowy"
+                         onChange={this.onChange}
+                         value={this.state.value}
+                     />
+                     <button style={searchButton} className="button" type="submit" value="Wyszukaj">
+                         <i className="fas fa-arrow-right iconArrow"></i></button>
                 </form>
             </div>
         )

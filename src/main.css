@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
+}
+
+h1 {
+    font-size: 30px;
+    /*color: #C6596F;*/
+    /*color: #76c143;*/
+    color: #444444;
+}
+
+h2 {
+    font-size: 24px;
+    color: #444444;
+    padding-left: 20px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 17px;
+    text-align: center;
+    color: #C6596F;
+    opacity: 0.4;
+}
+
+.flexForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.inputForm {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #f2f4f8;
+    height: 4rem;
+    color: #444;
+    width: 20rem;
+    border-radius: 50px;
+    border: 1px;
+    margin-bottom: 20px;
+}
+
+.buttonForm {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-color: #C6596F;
+    border: 1px;
+    margin-left: 10px;
+    padding: 0 17px 0 10px;
+    color: white;
+}
+
+.iconArrow {
+    font-size: 30px;
+    color: white;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    h2 {
+        font-size: 18px;
+        padding-left: 2px;
+    }
+    .inputForm {
+        font-size: 1.25rem;
+        height: 2.5rem;
+        width: 15rem;
+        margin-bottom: 20px;
+    }
+    .flexForm {
+        margin: 13px;
+    }
+}

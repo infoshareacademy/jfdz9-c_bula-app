@@ -11,10 +11,9 @@ import {
 } from 'react-router-dom';
 import Nav from './Nav';
 import Dashboard from './Dashboard';
-
+import './main.css'
 
 class App extends Component {
-
 
 
     render() {
@@ -26,10 +25,10 @@ class App extends Component {
                             <Grid item xs={12}>
                                 <Nav/>
                             </Grid>
-
-                            <Grid item xs={12}>
+                            <Grid style={{display: 'flex', flexGrow: 1, justifyContent: 'center'}}>
                                 <Switch>
                                    <Route exact path="/" component={Dashboard}/>
+                                   <Route exact path="/dashboard" component={Dashboard}/>
                                    <Route path="/home" component={Home}/>
                                    <Route path="/SignIn" component={SignIn}/>
                                    <Route path="/SignUp" component={SignUp}/>
