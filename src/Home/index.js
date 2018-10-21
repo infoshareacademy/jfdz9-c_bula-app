@@ -30,6 +30,7 @@ class Home extends Component {
         districtIds: [],
         shops: [],
         selectedDistrict: '',
+        timeout: true
     };
 
     componentDidMount() {
@@ -46,11 +47,19 @@ class Home extends Component {
             })
         });
 
-        firebase.database().ref('/shops').on('value', snapshot => {
+       this.state.timeout && firebase.database().ref('/shops').on('value', snapshot => {
             this.setState({
                 district: (snapshot.val().map(shop => shop.address.district).reduce((uniqueDistricts, district) => uniqueDistricts.includes(district) ? uniqueDistricts : uniqueDistricts.concat(district),[])),
+                timeout: false
             })
         });
+    }
+
+    componentDidUpdate(){
+        this.state.timeout === false && setTimeout(this.setState({
+            timeout: true
+        }), 250)
+
     }
 
     setCategoryIds = categoryIds => {
@@ -73,6 +82,7 @@ class Home extends Component {
 
     render() {
         return (<Fragment>
+                {console.log(this.state.timeout)}
                 <Router>
                     <div>
                         <Grid container spacing={0}>
