@@ -100,7 +100,8 @@ class AdminPanel extends Component {
             description: this.state.description,
             name: this.state.name,
             category_id:this.state.cathegory,
-            image:this.state.image
+            image:this.state.image,
+            sid:this.state.shopId
         });
         firebase.database().ref(`/shops/${this.state.shopId}/address`).set({
             district: this.state.district,

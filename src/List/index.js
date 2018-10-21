@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import firebase from "firebase";
+import IsAdmin from "../Auth/isAdmin";
 
 // import Favorite from '@material-ui/icons/Favorite';
 
@@ -44,8 +46,9 @@ const styleMargin = {
     margin: '0',
 };
 class List extends Component {
-
-
+    handleDelete = shopId => event => {
+        firebase.database().ref(`/shops/${shopId}`).remove();
+    };
     render() {
         const {classes} = this.props;
 
@@ -60,7 +63,10 @@ class List extends Component {
                     shop => this.props.district ? shop.address.district === this.props.district : true
                 ).map(
                     shop => (
-                        <div key={shop.id}>
+                        <div key={shop.sid}>
+                            <IsAdmin>
+                            <button onClick={this.handleDelete(shop.sid)}>Usun</button>
+                            </IsAdmin>
                             <Paper>
                                 <Grid container spacing={24} style={styleMargin}>
                                     <Grid item style={styleShopContener}>
