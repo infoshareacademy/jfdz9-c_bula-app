@@ -21,16 +21,12 @@ const styles = theme => ({
         margin: theme.spacing.unit,
     },
 });
-const styleCheckbox = {
-    fontSize: '20px',
-    paddingLeft: '30px'
-};
 
 class CheckboxesGroup extends React.Component {
 
     state = {
         selectedCategoryIds: [],
-        allCategoriesVisible: false
+        allCategoriesVisible: false,
     };
 
     handleChange = categoryId => event => {
@@ -66,7 +62,7 @@ class CheckboxesGroup extends React.Component {
                         {
                             categories.map(
                                 category => (
-                                    <FormControlLabel style={styleCheckbox}
+                                    <FormControlLabel className="styleCheckbox"
                                                       key={category.id}
                                                       control={
                                                           <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
@@ -84,7 +80,11 @@ class CheckboxesGroup extends React.Component {
                             )
                         }
                     </FormGroup>
-                    <button onClick={() => this.showMore()}>Więcej</button>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <button onClick={() => this.showMore()} className="buttonFormSideBar">
+                        { this.state.allCategoriesVisible ? ( <span>MNIEJ</span> ) : ( <span>WIĘCEJ</span> ) }
+                    </button>
+                    </div>
                 </FormControl>
             </div>
         );
