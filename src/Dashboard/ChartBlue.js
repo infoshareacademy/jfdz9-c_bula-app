@@ -61,7 +61,7 @@ class ChartBlue extends React.Component {
                 direction="row"
                 alignItems="center"
             >
-                <Typography color="inherit" style={{fontSize: '30', fontWeight: 'bold', color: '#444444',  margin: 10, textAlign: 'center'}}>
+                <Typography color="inherit" style={{fontSize: '40', fontWeight: 'bold', color: '#444444',  margin: 10, textAlign: 'center'}}>
                     LICZBA SKLEPIKÓW OSIEDLOWYCH
                 </Typography>
                 <Typography color="inherit" style={{fontSize: '18', width: 400, margin: 10, textAlign: 'center'}}>

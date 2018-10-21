@@ -10,7 +10,10 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <Grid container spacing={24}>
+            <Grid container
+                  spacing={24}
+                  direction="row"
+                  alignItems="center">
                 <Paper style={{margin: '20px'}}>
                 <Grid item xs={12} md={6}
                       direction="row"

@@ -31,7 +31,7 @@ class ChartLine extends Component {
                     Co miesiąc dołącza do aplikacji co raz większa liczba użytkowników.
                      Dołącz i Ty!
                 </Typography>
-                <LineChart width={500} height={240} data={this.data}
+                <LineChart width={500} height={300} data={this.data}
                            margin={{top: 5, right: 20, bottom: 5, left: 0}}>
                     <XAxis dataKey="miesiąc"/>
                     <YAxis/>
