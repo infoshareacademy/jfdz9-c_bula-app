@@ -7,7 +7,7 @@ import ControlledOpenSelect from "../Sidebar/ControlledOpenSelect";
 import {
     BrowserRouter as Router,
 } from 'react-router-dom';
-import Background from '../Search/backgroundImage.jpg';
+import Background from './backgroundImage.jpg';
 import firebase from 'firebase';
 
 const styleSidebar = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MaskedInput from 'react-text-mask';
-import arrow from './arrow.png';
+// import arrowRight from './arrowRight.png';
 
 const searchButton = {
     borderRadius: '50%',
@@ -61,7 +61,7 @@ class Search extends Component {
                          value={this.state.value}
                      />
                      <button style={searchButton} className="button" type="submit" value="Wyszukaj">
-                         <i className="fas fa-arrow-right iconArrow"></i></button>
+                         <i className="material-icons" style={{fontSize: '50px', color: 'white'}}>keyboard_arrow_right</i></button>
                 </form>
             </div>
         )

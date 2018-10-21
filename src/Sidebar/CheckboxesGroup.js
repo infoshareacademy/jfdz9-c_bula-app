@@ -6,6 +6,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import buttonUp from './up.png';
+import buttonDown from './down.png';
 import './sidebar.css';
 
 const styles = theme => ({
@@ -81,7 +83,7 @@ class CheckboxesGroup extends React.Component {
                     </FormGroup>
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                     <button onClick={() => this.showMore()} className="buttonFormSideBar">
-                        { this.state.allCategoriesVisible ? ( <span>MNIEJ</span> ) : ( <span>WIĘCEJ</span> ) }
+                        { this.state.allCategoriesVisible ? ( <img src={buttonUp} alt=""/> ) : ( <img src={buttonDown} alt=""/> ) }
                     </button>
                     </div>
                 </FormControl>
