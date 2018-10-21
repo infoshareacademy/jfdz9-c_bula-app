@@ -17,6 +17,11 @@ h2 {
     padding-left: 20px;
 }
 
+h3 {
+    font-size: 20px;
+    color: #444444;
+}
+
 input::-webkit-input-placeholder {
     font-size: 17px;
     text-align: center;
@@ -53,7 +58,18 @@ input::-webkit-input-placeholder {
     padding: 0 17px 0 10px;
     color: white;
 }
-
+.inputFormRejestr {
+    text-align: center;
+    font-size: 14px;
+    background-color: #f2f4f8;
+    height: 2.5rem;
+    color: #444;
+    width: 4.5rem;
+    border-radius: 50px;
+    border: 1px;
+    margin-left: 10px;
+    padding-left: 20px;
+}
 .iconArrow {
     font-size: 30px;
     color: white;
@@ -64,12 +80,14 @@ input::-webkit-input-placeholder {
         font-size: 18px;
         padding-left: 2px;
     }
+
     .inputForm {
         font-size: 1.25rem;
         height: 2.5rem;
         width: 15rem;
         margin-bottom: 20px;
     }
+
     .flexForm {
         margin: 13px;
     }
