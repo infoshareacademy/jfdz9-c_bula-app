@@ -49,24 +49,26 @@ class List extends Component {
     handleDelete = shopId => event => {
         firebase.database().ref(`/shops/${shopId}`).remove();
     };
+
+    filter() {
+        return this.props.shops.filter(
+            shop => shop.address.postalCode.includes(this.props.postalCode)
+        ).filter(
+            shop => this.props.selectedCategoryIds.length > 0 ? shop.category_id.some(id => this.props.selectedCategoryIds.includes(id)) : true
+        ).filter(
+            shop => this.props.district ? shop.address.district === this.props.district : true
+        )
+    }
     render() {
         const {classes} = this.props;
 
         return (
             <Fragment>
 
-                {this.props.shops.filter(
-                    shop => shop.address.postalCode.includes(this.props.postalCode)
-                ).filter(
-                    shop => this.props.selectedCategoryIds.length > 0 ? shop.category_id.some(id => this.props.selectedCategoryIds.includes(id)) : true
-                ).filter(
-                    shop => this.props.district ? shop.address.district === this.props.district : true
-                ).map(
+                {this.filter().length === 0 ? <h2>Pod tym kodem nie ma żadnych sklepów</h2> : this.filter().map(
                     shop => (
                         <div key={shop.sid}>
-                            <IsAdmin>
-                            <button onClick={this.handleDelete(shop.sid)}>Usun</button>
-                            </IsAdmin>
+
                             <Paper>
                                 <Grid container spacing={24} style={styleMargin}>
                                     <Grid item style={styleShopContener}>
@@ -95,7 +97,9 @@ class List extends Component {
                                                 color="textSecondary">{`Sb: ${shop.openingHours.saturday_open} - ${shop.openingHours.saturday_close}`}</Typography>
                                             <Typography
                                                 color="textSecondary">{`Nd: ${shop.openingHours.sunday_open} - ${shop.openingHours.sunday_close}`}</Typography>
-
+                                            <IsAdmin>
+                                                <button className="buttonFormSideBar" style={{fontWeight: 'bold', marginTop: '5px', backgroundColor: 'lightgrey', color: '#444444'}} onClick={this.handleDelete(shop.sid)}>Usun</button>
+                                            </IsAdmin>
                                         </Grid>
                                     </Grid>
                                 </Grid>
