@@ -18,11 +18,10 @@ class AdminPanel extends Component {
         street: '',
 
         cathegory: [],
-        caths: 1,
 
         description: '',
 
-        image: '',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSf9gUebYustjZYe_3Rnik9ZU_QE0Xkz2YElmzttqhB3trzUaC',
 
         name: '',
 
@@ -100,7 +99,8 @@ class AdminPanel extends Component {
         firebase.database().ref(`/shops/${this.state.shopId}`).set({
             description: this.state.description,
             name: this.state.name,
-            category_id:this.state.cathegory
+            category_id:this.state.cathegory,
+            image:this.state.image
         });
         firebase.database().ref(`/shops/${this.state.shopId}/address`).set({
             district: this.state.district,
@@ -129,7 +129,6 @@ class AdminPanel extends Component {
             sunday_open: 0,
             weekday_close: 0,
             weekday_open: 0,
-            caths: 1,
             district: '',
         })
     };
@@ -156,12 +155,17 @@ class AdminPanel extends Component {
                 </ul>
             </div>
                 <form onSubmit={this.handleShopSubmit}>
-                    <p>adres:</p>
+                    <h2>Dodaj sklep:</h2>
+                    <p>Dzielnica:</p>
+                    <p></p>
                     <input name="district" value={this.state.district} onChange={this.handleChange}/>
+                    <p>Kod pocztowy:</p>
                     <input name="postalCode" value={this.state.postalCode} onChange={this.handleChange}/>
+                    <p>Ulica:</p>
                     <input name="street" value={this.state.street} onChange={this.handleChange}/>
-                    <p>o sklepie:</p>
+                    <p>Nazwa:</p>
                     <input name="name" value={this.state.name} onChange={this.handleChange}/>
+                    <p>Opis:</p>
                     <input name="description" value={this.state.description} onChange={this.handleChange}/>
                     <p>Kategorie:</p>
                     {
@@ -180,8 +184,7 @@ class AdminPanel extends Component {
                             )
                         )
                     }
-                    <p>Godziny otwarcia:</p>
-
+                    <h2>Godziny otwarcia:</h2>
                     <p>Sobota</p>
                     <select name={"saturday_open"} onChange={this.handleChange}>
                         {
@@ -239,9 +242,6 @@ class AdminPanel extends Component {
                             )
                         }
                     </select>
-
-                    <p>Logo:</p>
-
                     <button>Dodaj</button>
                 </form>
             </IsAdmin>
