@@ -3,28 +3,34 @@ body {
     font-size: 16px;
 
 }
+
 h1 {
     font-size: 30px;
     /*color: #C6596F;*/
     /*color: #76c143;*/
     color: #444444;
 }
+
 h2 {
     font-size: 24px;
     color: #444444;
+    padding-left: 20px;
 }
+
 input::-webkit-input-placeholder {
     font-size: 17px;
     text-align: center;
     color: #C6596F;
     opacity: 0.4;
 }
+
 .flexForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 40px;
 }
+
 .inputForm {
     text-align: center;
     font-size: 1.5rem;
@@ -47,14 +53,16 @@ input::-webkit-input-placeholder {
     padding: 0 17px 0 10px;
     color: white;
 }
+
 .iconArrow {
     font-size: 30px;
     color: white;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     h2 {
         font-size: 18px;
+        padding-left: 2px;
     }
     .inputForm {
         font-size: 1.25rem;

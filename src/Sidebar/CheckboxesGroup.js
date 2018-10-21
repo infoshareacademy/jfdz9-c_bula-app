@@ -6,6 +6,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import buttonUp from './up.png';
+import buttonDown from './down.png';
 import './sidebar.css';
 
 const styles = theme => ({
@@ -21,16 +23,12 @@ const styles = theme => ({
         margin: theme.spacing.unit,
     },
 });
-const styleCheckbox = {
-    fontSize: '20px',
-    paddingLeft: '30px'
-};
 
 class CheckboxesGroup extends React.Component {
 
     state = {
         selectedCategoryIds: [],
-        allCategoriesVisible: false
+        allCategoriesVisible: false,
     };
 
     handleChange = categoryId => event => {
@@ -53,7 +51,6 @@ class CheckboxesGroup extends React.Component {
         const { classes } = this.props;
         let categories = this.props.categories;
 
-        console.log(this.state.allCategoriesVisible);
         if (!this.state.allCategoriesVisible) {
             categories = this.props.categories.slice(0,5)
         }
@@ -66,7 +63,7 @@ class CheckboxesGroup extends React.Component {
                         {
                             categories.map(
                                 category => (
-                                    <FormControlLabel style={styleCheckbox}
+                                    <FormControlLabel className="styleCheckbox"
                                                       key={category.id}
                                                       control={
                                                           <Checkbox checked={this.state.selectedCategoryIds.includes(category.id)}
@@ -84,7 +81,11 @@ class CheckboxesGroup extends React.Component {
                             )
                         }
                     </FormGroup>
-                    <button onClick={() => this.showMore()}>Więcej</button>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <button onClick={() => this.showMore()} className="buttonFormSideBar">
+                        { this.state.allCategoriesVisible ? ( <img src={buttonUp} alt=""/> ) : ( <img src={buttonDown} alt=""/> ) }
+                    </button>
+                    </div>
                 </FormControl>
             </div>
         );
