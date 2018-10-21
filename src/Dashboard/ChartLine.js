@@ -24,14 +24,14 @@ class ChartLine extends Component {
                 direction="row"
                 alignItems="center"
             >
-                <Typography color="inherit" style={{fontSize: '30', fontWeight: 'bold', color: '#444444', margin: 10, textAlign: 'center'}}>
+                <Typography color="inherit" style={{fontSize: '45', fontWeight: 'bold', color: '#444444', margin: 10, textAlign: 'center'}}>
                     LICZBA UŻYTKOWNIKÓW
                 </Typography>
-                <Typography color="inherit" style={{fontSize: '16', width: 400, margin: 10, textAlign: 'center'}}>
+                <Typography color="inherit" style={{fontSize: '18', width: 400, margin: 10, textAlign: 'center'}}>
                     Co miesiąc dołącza do aplikacji co raz większa liczba użytkowników.
                      Dołącz i Ty!
                 </Typography>
-                <LineChart width={500} height={300} data={this.data}
+                <LineChart width={600} height={450} data={this.data}
                            margin={{top: 5, right: 20, bottom: 5, left: 0}}>
                     <XAxis dataKey="miesiąc"/>
                     <YAxis/>

@@ -48,8 +48,8 @@ const myDataSource = {
 
 const chartConfigs = {
     type: 'column2d',
-    width: 500,
-    height: 300,
+    width: 600,
+    height: 450,
     dataFormat: 'json',
     dataSource: myDataSource,
 };
@@ -61,7 +61,7 @@ class ChartBlue extends React.Component {
                 direction="row"
                 alignItems="center"
             >
-                <Typography color="inherit" style={{fontSize: '40', fontWeight: 'bold', color: '#444444',  margin: 10, textAlign: 'center'}}>
+                <Typography color="inherit" style={{fontSize: '45', fontWeight: 'bold', color: '#444444',  margin: 10, textAlign: 'center'}}>
                     LICZBA SKLEPIKÓW OSIEDLOWYCH
                 </Typography>
                 <Typography color="inherit" style={{fontSize: '18', width: 400, margin: 10, textAlign: 'center'}}>
