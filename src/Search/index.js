@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MaskedInput from 'react-text-mask';
-import arrowRight from './arrowRight.png';
+// import arrowRight from './arrowRight.png';
 
 const searchButton = {
     borderRadius: '50%',
