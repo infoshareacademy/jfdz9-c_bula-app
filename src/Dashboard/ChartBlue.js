@@ -52,8 +52,6 @@ const chartConfigs = {
     height: 300,
     dataFormat: 'json',
     dataSource: myDataSource,
-    color: 'red',
-    backgroundColor: 'yellow',
 };
 
 class ChartBlue extends React.Component {
